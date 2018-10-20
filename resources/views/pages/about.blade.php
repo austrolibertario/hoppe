@@ -1,8 +1,8 @@
 @extends('layouts.default')
 
-@section('title')
-    {{ lang('About Us') }}_@parent
-@stop
+@section('title'){{ lang('About Us') }} - @parent @stop
+
+@section('description')H³ é um instituto libertário afim de disseminar a liberdade, atuar no ciberlibertarianismo e promover debates e eventos! @stop
 
 @section('content')
 
@@ -16,12 +16,16 @@
 
                 <h2 id="toc_1">Sobre o Portal</h2>
 
-                <p>Temos como objetivo principal divulgar as idéias austro-libertárias.</p>
+                <p>Temos como objetivo principal divulgar as idéias austro-libertárias. Debater diferentes opiniões, aumentar e integrar os diversos movimentos libertários e atuar constantemente no Ciber-Libertarianismo!</p>
+
+                <p>Nosso servidor está hospedado no oceano, não precisamos seguir regra de caralho de país nenhum.</p>
+
+                <p>Em breve também poderá acessar nosso forum na deepweb através da rede TOR.</p>
 
                 <h2 id="toc_3">Nosso Objetivo</h2>
 
                 <blockquote>
-                    <p>Esse é um ambiente colaborativo sem censura, por isso temos algumas regras de conduta.</p>
+                    <p>Esse é um ambiente colaborativo sem censura, por isso temos algumas regras de conduta. Porém saiba que, caso siga as regras do fórum, sua postagem jamais será apagada ou censurada. Se algum burocrata da máfia estatal vier com papinho de censura, o mandaremos pro caralho!</p>
                 </blockquote>
 
                 <h3 id="toc_4">Todos os Participantes obrigatoriamente devem</h3>
@@ -48,7 +52,7 @@
 
                 <ul>
                     <li> Responder com agressão sem criticas construtivas.</li>
-                    <li> Desrepeitar o outro.</li>
+                    <li> Desrespeitar o outro.</li>
                 </ul>
 
 
