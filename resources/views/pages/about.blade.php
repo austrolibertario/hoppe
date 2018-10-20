@@ -52,7 +52,7 @@
 
                 <ul>
                     <li> Responder com agressão sem criticas construtivas.</li>
-                    <li> Desrespeitar o outro.</li>
+                    <li> Desrespeitar os outros membros.</li>
                 </ul>
 
 
