@@ -1,7 +1,7 @@
 {
   "devDependencies": {
-    "gulp": "^3.8.7",
-    "laravel-elixir": "^4.2.1",
+    "gulp": "^4.0.0",
+    "laravel-elixir": "^5.0.0",
     "laravel-elixir-compress": "^1.0.2",
     "laravel-elixir-livereload": "^1.1.4"
   },
