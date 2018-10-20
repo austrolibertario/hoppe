@@ -1,0 +1,83 @@
+version: "3.0"
+
+services:
+  nginx:
+    image: sierratecnologia/nginx
+    restart: always
+    expose:
+      - "9000"
+    ports:
+      - "80:80"
+    volumes:
+      - ./docker/nginx_conf:/etc/nginx/conf.d
+      - ./:/var/www/html
+      -  /usr/bin/ssh:/usr/bin/ssh
+    depends_on:
+      - php
+    networks:
+      - outside
+      - internal
+
+  php:
+    build:
+      context: ./docker/php/
+      dockerfile: ./Dockerfile
+    #command: bash -c "sed -i \"s/memory_limit = 128M/memory_limit = 512M/\" /usr/local/etc/php/php.ini && php-fpm"
+    command: bash -c "php-fpm"
+    ports:
+      - "9000:9000"
+    environment:
+      PHP_XDEBUG_ENABLED: 1 # Set 1 to enable.
+      PHP_IDE_CONFIG: "serverName=docker"
+      XDEBUG_CONFIG: "remote_host=172.17.0.1"
+    volumes:
+      - ./:/var/www/html
+      # Debian based mapping for certificates.
+      # - /etc/ssl/certs:/etc/ssl/certs:ro
+      # - /usr/share/ca-certificates/extra:/usr/share/ca-certificates/extra:ro
+      # SSH keys
+      - ~/.ssh:/root/.ssh
+      - ./docker/logs/xdebug/:/tmp/xdebug_log #Logs for Xdebug
+    restart: always
+    depends_on:
+      - db
+    networks:
+      - internal
+
+  db:
+    image: mysql:5.7
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./database/dumps:/dumps
+    environment:
+      MYSQL_ROOT_PASSWORD: A123456
+      MYSQL_DATABASE: hoppe
+      MYSQL_USER: hoppe
+      MYSQL_PASSWORD: A123456
+    networks:
+      - internal
+
+  redis:
+    image: redis:3.0
+    restart: always
+    expose:
+      - "6379"
+    networks:
+      - internal
+
+
+volumes:
+  # We'll define a volume that will store the data from the databases:
+  db_data:
+    driver: local
+
+networks:
+  outside:
+    external: true
+  internal:
+    driver: bridge
+
+#logging:
+#  driver: syslog
+#  options:
+#    syslog-address: "tcp://192.168.0.42:123"
