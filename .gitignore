@@ -4,6 +4,7 @@ Homestead.yaml
 Homestead.json
 .env
 .DS_Store
+npm-debug.log
 
 /storage/administrator_settings
 
