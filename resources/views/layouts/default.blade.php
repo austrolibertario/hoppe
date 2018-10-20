@@ -15,7 +15,7 @@
 		<meta property="og:site_name" content="Hans-Hermann Hoppe Brasil"/>
 		<meta property="og:type" content="article"/>
 		<meta name="twitter:card" content="summary">
-		<meta property="fb:admins" content="h3sotospeak″/>
+		<meta property="fb:admins" content="h3sotospeak"/>
 		<meta property="og:title" content="@section('title')Hans-Hermann Hoppe Brasil @show"/>
 		<meta name="twitter:title" content="@section('title')Hans-Hermann Hoppe Brasil @show">
 		<meta property="og:description" content="@section('description')Hans-Hermann Hoppe Brasil - Debate Libertário @show"/>
