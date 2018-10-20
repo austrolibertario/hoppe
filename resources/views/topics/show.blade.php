@@ -102,7 +102,7 @@
             title               : '{{{ $topic->title }}} | de H³ #hoppe-brasil# {{ $topic->user->id != 1 ? '@ricardo_sierra' : '' }} {{ $topic->user->weibo_name ? '@'.$topic->user->weibo_name : '' }}',
             wechatQrcodeTitle   : "Escaneie para compartilhar", // WeChat QR code prompt de texto
             wechatQrcodeHelper  : '<p>No WeChat va em "Discover" e mire no qrcode</p>',
-            image               : "{{ $cover ? $cover->link : 'https://dn-phphub.qbox.me/uploads/images/201701/29/1/pQimFCe1r5.png' }}",
+            image               : "{{ $cover ? $cover->link : 'https://h3sotospeak.com/uploads/images/201701/29/1/pQimFCe1r5.png' }}",
             sites               : ['facebook', 'twitter', 'google', 'wechat'] //, 'linkedin', 'pinterest', 'weibo','qzone', 'qq', 'douban',
         };
 

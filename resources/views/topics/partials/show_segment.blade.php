@@ -45,7 +45,7 @@
 
                 </div>
                 <div class="vote-hint">
-                    Seja o primeiro a gostar <img title=":bowtie:" alt=":bowtie:" class="emoji" src="https://dn-phphub.qbox.me/assets/images/emoji/bowtie.png" align="absmiddle"></img>
+                    Seja o primeiro a gostar <img title=":bowtie:" alt=":bowtie:" class="emoji" src="https://h3sotospeak.com/assets/images/emoji/bowtie.png" align="absmiddle"></img>
                 </div>
             @endif
 
