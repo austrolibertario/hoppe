@@ -1,4 +1,5 @@
-[PHPHub](https://github.com/austrolibertarios/phphub) Laravel 5.8 Versão.
+Primeiro forum anarco-capitalista!
+
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/austrolibertario/hoppe/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/austrolibertario/hoppe/?branch=master)[![Code Coverage](https://scrutinizer-ci.com/g/austrolibertario/hoppe/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/austrolibertario/hoppe/?branch=master)[![Latest Stable Version](https://poser.pugx.org/austrolibertario/hoppe/v/stable.png)](https://packagist.org/packages/austrolibertario/hoppe) [![Total Downloads](https://poser.pugx.org/austrolibertario/hoppe/downloads.png)](https://packagist.org/packages/austrolibertario/hoppe) [![Latest Unstable Version](https://poser.pugx.org/austrolibertario/hoppe/v/unstable.png)](https://packagist.org/packages/austrolibertario/hoppe) [![License](https://poser.pugx.org/austrolibertario/hoppe/license.png)](https://packagist.org/packages/austrolibertario/hoppe)
 
 ## Visão geral do projeto=============                                                                                                                                                                             
@@ -6,7 +7,7 @@
 * Código do projeto: h3
 * Endereço oficial：https://h3sotospeak.com/
 
-[SoToSpeak](https://github.com/austrolibertarios/hoppe) Laravel 5.1 Versão.
+[SoToSpeak](https://github.com/austrolibertarios/hoppe) Laravel 5.8 Versão.
 
 ## Ambiente operacional
 
@@ -54,14 +55,7 @@ Clone o código-fonte para o local:
 
     > git clone https://github.com/austrolibertarios/hoppe.git
 
-#### 2. Agora suba os servidores:
-```
-docker-compose up
-```
 
-<<<<<<< HEAD
-#### 3. Run install inside php container
-=======
 #### 2. Copie e configura o arquivo .env e  suba os servidores:
 ```
 cp .env.example .env && \
@@ -69,7 +63,6 @@ docker-compose up
 ```
 
 #### 3. Se conecte no container do postgres e crie os bancos de dados e faça a importação das bases
->>>>>>> master
 ```
 docker exec -it hoppe_db_1 bash
 php artisan est:install
@@ -82,11 +75,7 @@ mysql -u root -p hoppe;
 ```
 
 
-<<<<<<< HEAD
-### Simple Instalation | Instalação Simples
-=======
 ### Instalação com Homestead
->>>>>>> master
 
 #### 1. Clone github code
 
