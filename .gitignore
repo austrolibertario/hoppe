@@ -13,7 +13,6 @@ yarn-error.log
 .env
 .phpunit.result.cache
 .DS_Store
-npm-debug.log
 
 _ide_helper.php
 _ide_helper_models.php
