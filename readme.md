@@ -1,8 +1,8 @@
-Primeiro forum anarco-capitalista!
+# Primeiro forum anarco-capitalista!=============                                                     
 
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/austrolibertario/hoppe/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/austrolibertario/hoppe/?branch=master)[![Code Coverage](https://scrutinizer-ci.com/g/austrolibertario/hoppe/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/austrolibertario/hoppe/?branch=master)[![Latest Stable Version](https://poser.pugx.org/austrolibertario/hoppe/v/stable.png)](https://packagist.org/packages/austrolibertario/hoppe) [![Total Downloads](https://poser.pugx.org/austrolibertario/hoppe/downloads.png)](https://packagist.org/packages/austrolibertario/hoppe) [![Latest Unstable Version](https://poser.pugx.org/austrolibertario/hoppe/v/unstable.png)](https://packagist.org/packages/austrolibertario/hoppe) [![License](https://poser.pugx.org/austrolibertario/hoppe/license.png)](https://packagist.org/packages/austrolibertario/hoppe)
 
-## Visão geral do projeto=============                                                                                                                                                                             
+## Visão geral do projeto                                                                                                             
 * Nome do produto: Instituto Hoppe Brasil
 * Código do projeto: h3
 * Endereço oficial：https://h3sotospeak.com/
@@ -11,30 +11,41 @@ Primeiro forum anarco-capitalista!
 
 ## Ambiente operacional
 
+```
+- Docker
+```
+
+ou 
+
+```
 - Nginx 1.8+
 - PHP 7.0+
 - Mysql 5.7+
 - Redis 3.0+
 - Memcached 1.4+
+```
 
 ## Requirements
 
+```
 Docker
+```
 
 OU
 
-Libs:
+```
 * php +7
 * ext-mcrypt
+```
 
 Install in ubuntu
 ```
-sudo apt install php-mcrypt
+sudo apt install php php-mcrypt
 ```
 
 ## Implantação / instalação do ambiente de desenvolvimento
 
-Este código de projeto foi desenvolvido usando o framework PHP [Laravel 5.1] (https://doc.h3sotospeak.com/docs/5.1/), usado no ambiente de desenvolvimento local [Laravel Homestead](https://doc.h3sotospeak.com/docs/5.1/homestead).
+Este código de projeto foi desenvolvido usando o framework PHP [Laravel 5.8] (https://doc.h3sotospeak.com/docs/5.1/), usado no ambiente de desenvolvimento local [Laravel Homestead](https://doc.h3sotospeak.com/docs/5.1/homestead).
 
 A seguinte descrição será feita assumindo que o leitor já instalou o Homestead. Se você não instalou o Homestead, você pode consultar [Instalação e Configuração do Homestead] (https://doc.h3sotospeak.com/docs/5.1/homestead#installation-and-setup) para a configuração da instalação.
 
