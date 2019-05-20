@@ -9,21 +9,7 @@
 
 [SoToSpeak](https://github.com/austrolibertarios/hoppe) Laravel 5.8 Versão.
 
-## Ambiente operacional
-
-```
-- Docker
-```
-
-ou 
-
-```
-- Nginx 1.8+
-- PHP 7.0+
-- Mysql 5.7+
-- Redis 3.0+
-- Memcached 1.4+
-```
+## Installing With Docker | Instalando com Docker
 
 ## Requirements
 
@@ -31,25 +17,7 @@ ou
 Docker
 ```
 
-OU
-
-```
-* php +7
-* ext-mcrypt
-```
-
-Install in ubuntu
-```
-sudo apt install php php-mcrypt
-```
-
-## Implantação / instalação do ambiente de desenvolvimento
-
-Este código de projeto foi desenvolvido usando o framework PHP [Laravel 5.8] (https://doc.h3sotospeak.com/docs/5.1/), usado no ambiente de desenvolvimento local [Laravel Homestead](https://doc.h3sotospeak.com/docs/5.1/homestead).
-
-A seguinte descrição será feita assumindo que o leitor já instalou o Homestead. Se você não instalou o Homestead, você pode consultar [Instalação e Configuração do Homestead] (https://doc.h3sotospeak.com/docs/5.1/homestead#installation-and-setup) para a configuração da instalação.
-
-### Installing With Docker | Instalando com Docker
+### Installing
 
 #### 1. Clonar código-fonte
 
@@ -83,6 +51,37 @@ php artisan est:install
 ```
 docker exec -it hoppe_db_1 bash
 mysql -u root -p hoppe;
+```
+
+## Installing na Mão
+
+## Implantação / instalação do ambiente de desenvolvimento
+
+Este código de projeto foi desenvolvido usando o framework PHP [Laravel 5.8] (https://doc.h3sotospeak.com/docs/5.1/), usado no ambiente de desenvolvimento local [Laravel Homestead](https://doc.h3sotospeak.com/docs/5.1/homestead).
+
+A seguinte descrição será feita assumindo que o leitor já instalou o Homestead. Se você não instalou o Homestead, você pode consultar [Instalação e Configuração do Homestead] (https://doc.h3sotospeak.com/docs/5.1/homestead#installation-and-setup) para a configuração da instalação.
+
+
+### Ambiente operacional
+
+```
+- Nginx 1.8+
+- PHP 7.0+
+- Mysql 5.7+
+- Redis 3.0+
+- Memcached 1.4+
+```
+
+## Requirements
+
+```
+* php +7
+* ext-mcrypt
+```
+
+Install in ubuntu
+```
+sudo apt install php php-mcrypt
 ```
 
 
@@ -167,29 +166,8 @@ Host:
 
 Vá diretamente para o site oficial [https://nodejs.org/en/] (https://nodejs.org/en/) para baixar e instalar a versão mais recente.
 
-2). Instalar Gulp
+2). Instalar Npm
 
-```shell
-npm install --global gulp
-```
-
-3). Instale o Laravel Elixir
-
-```shell
-npm install
-```
-
-4). Conteúdo direto de compilação direta do Gulp
-
-```shell
-gulp
-```
-
-5). Monitore alterações e compile automaticamente
-
-```shell
-gulp watch
-```
 
 ### Link de entrada
 
