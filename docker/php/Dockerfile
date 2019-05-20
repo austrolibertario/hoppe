@@ -39,7 +39,6 @@ RUN apt-get update && apt-get upgrade -y \
         opcache \
         mbstring \
         pgsql \
-        mysql \
         pdo_mysql \
         pdo_pgsql \
         mysqli \
