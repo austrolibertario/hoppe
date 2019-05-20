@@ -12,7 +12,7 @@
   {{ lang('at') }} <abbr title="{{ $topic->created_at }}" class="timeago">{{ $topic->created_at }}</abbr>
   ⋅
 
-  @if (count($topic->lastReplyUser))
+  @if ($topic->lastReplyUser && count($topic->lastReplyUser))
     {{ lang('Last Reply by') }}
       <a href="{{{ URL::route('users.show', [$topic->lastReplyUser->id]) }}}">
         {{{ $topic->lastReplyUser->name }}}

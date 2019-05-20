@@ -26,6 +26,6 @@ class SendMaintainerWorksMail extends Job implements SelfHandling, ShouldQueue
 
     public function handle()
     {
-        return app('Phphub\Handler\EmailHandler')->sendMaintainerWorksMail($this->user, $this->timeFrame, $this->content);
+        return app('App\Phphub\Handler\EmailHandler')->sendMaintainerWorksMail($this->user, $this->timeFrame, $this->content);
     }
 }

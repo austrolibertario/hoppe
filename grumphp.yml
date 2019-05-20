@@ -1,0 +1,59 @@
+# grumphp.yml
+parameters:
+    bin_dir: "./vendor/bin"
+    git_dir: "."
+    hooks_dir: ~
+    hooks_preset: local
+    git_hook_variables:
+         VAGRANT_HOST_DIR: .
+         VAGRANT_PROJECT_DIR: /var/www
+    stop_on_failure: false
+    ignore_unstaged_changes: false
+    hide_circumvention_tip: false
+    process_async_limit: 10
+    process_async_wait: 1000
+    process_timeout: 60
+    ascii:
+        failed: grumphp-grumpy.txt
+        succeeded: grumphp-happy.txt
+    tasks:
+        ant: ~
+        atoum: ~
+        behat: ~
+        brunch: ~
+        clover_coverage: ~
+        composer: ~
+        composer_require_checker: ~
+        composer_script: ~
+        doctrine_orm: ~
+        file_size: ~
+        git_blacklist: ~
+        git_branch_name: ~
+        git_commit_message: ~
+        grunt: ~
+        gulp: ~
+        infection: ~
+        jsonlint: ~
+        npm_script: ~
+        phpcpd: ~
+        phpcs: ~
+        phpcsfixer: ~
+        phpcsfixer2: ~
+        phplint: ~
+        phpmd: ~
+        phpmnd: ~
+        phpparser: ~
+        phpspec: ~
+        phpstan: ~
+        phpunit: ~
+        phpunitbridge: ~
+        phpversion: ~
+        progpilot: ~
+        psalm: ~
+        robo: ~
+        securitychecker: ~
+        shell: ~
+        xmllint: ~
+        yamllint: ~
+    testsuites: []
+    extensions: []

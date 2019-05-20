@@ -7,7 +7,7 @@ services:
     expose:
       - "9000"
     ports:
-      - "80:80"
+      - "83:80"
     volumes:
       - ./docker/nginx_conf:/etc/nginx/conf.d
       - ./:/var/www/html
@@ -17,6 +17,22 @@ services:
     networks:
       - outside
       - internal
+      - sdnet
+
+  selenium:
+    image: selenium/standalone-chrome:3.11.0-antimony
+    depends_on:
+      - php
+      - nginx
+    links:
+      - php:sdnet.test
+      - nginx:h3sotospeak.com
+      - nginx:dev.h3sotospeak.com
+    volumes:
+      - /dev/shm:/dev/shm
+    networks:
+      - outside
+      - sdnet
 
   php:
     build:
@@ -43,6 +59,7 @@ services:
       - db
     networks:
       - internal
+      - sdnet
 
   db:
     image: mysql:5.7
@@ -75,6 +92,8 @@ networks:
   outside:
     external: true
   internal:
+    driver: bridge
+  sdnet:
     driver: bridge
 
 #logging:

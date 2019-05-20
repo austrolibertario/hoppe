@@ -12,7 +12,7 @@
 */
 
 $app = new Illuminate\Foundation\Application(
-    realpath(__DIR__.'/../')
+    dirname(__DIR__)
 );
 
 /*
@@ -41,11 +41,6 @@ $app->singleton(
     App\Exceptions\Handler::class
 );
 
-$app->configureMonologUsing(function (Monolog\Logger $monolog) {
-    $filename = storage_path('logs/laravel-'.php_sapi_name().'.log');
-    $handler = new Monolog\Handler\RotatingFileHandler($filename);
-    $monolog->pushHandler($handler);
-});
 /*
 |--------------------------------------------------------------------------
 | Return The Application

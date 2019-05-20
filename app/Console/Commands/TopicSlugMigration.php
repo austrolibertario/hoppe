@@ -22,7 +22,7 @@ class TopicSlugMigration extends Command
             foreach ($topics as $topic) {
                 $topic->slug = slug_trans($topic->title);
                 $topic->save();
-                $this->info("Processamento concluído：$topic->id");
+                $this->info(_t("Processamento concluído：$topic->id"));
             }
         });
 

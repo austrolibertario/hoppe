@@ -7,7 +7,7 @@ return [
     | Application Name
     |--------------------------------------------------------------------------
     |
-    | 会用于生成 URL Schema 等.
+    | Será usado para gerar o esquema de URL, etc.
     |
     */
     'name' => env('APP_NAME', 'Hoppe'),
@@ -21,6 +21,19 @@ return [
     |
     */
     'env' => env('APP_ENV', 'production'),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Application Version
+    |--------------------------------------------------------------------------
+    |
+    | This value is the name of your application. This value is used when the
+    | framework needs to place the application's name in a notification or
+    | any other location as required by the application or its packages.
+    |
+    */
+
+    'version' => (string) env('APP_VERSION', '0.2.0'),
 
     /*
     |--------------------------------------------------------------------------
@@ -74,7 +87,7 @@ return [
     |
     */
 
-    'locale' => env('LOCALE') ? :'en',
+    'locale' => env('LOCALE') ? :'pt',
 
     /*
     |--------------------------------------------------------------------------
@@ -87,7 +100,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
+    'fallback_locale' => 'pt',
 
     /*
     |--------------------------------------------------------------------------
@@ -179,26 +192,25 @@ return [
         EstGroupe\Taggable\Providers\TaggingServiceProvider::class,
         Frozennode\Administrator\AdministratorServiceProvider::class,
         SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
-        Thujohn\Rss\RssServiceProvider::class,
-        Roumen\Sitemap\SitemapServiceProvider::class,
-        Phphub\Sitemap\SitemapServiceProvider::class,
+        RicardoSierra\Rss\RssServiceProvider::class,
+        App\Phphub\Sitemap\SitemapServiceProvider::class,
         Spatie\Backup\BackupServiceProvider::class,
         SocialiteProviders\Manager\ServiceProvider::class,
         Overtrue\LaravelFollow\FollowServiceProvider::class,
         Jrean\UserVerification\UserVerificationServiceProvider::class,
-        Naux\Mail\SendCloudServiceProvider::class,
         Cmgmyr\Messenger\MessengerServiceProvider::class,
         Overtrue\LaravelFilesystem\Qiniu\QiniuStorageServiceProvider::class,
 
+        Inani\Larapoll\LarapollServiceProvider::class,
+        Laravel\Passport\PassportServiceProvider::class,
+
         // API
-        Dingo\Api\Provider\LaravelServiceProvider::class,
-        LucaDegasperi\OAuth2Server\Storage\FluentStorageServiceProvider::class,
-        LucaDegasperi\OAuth2Server\OAuth2ServerServiceProvider::class,
-        App\Providers\OAuthServiceProvider::class,
+        // Dingo\Api\Provider\LaravelServiceProvider::class,
+        // App\Providers\OAuthServiceProvider::class,
         App\Providers\ApiExceptionHandlerProvider::class,
 
         // Controle de Programação
-        Sentry\SentryLaravel\SentryLaravelServiceProvider::class,
+        Sentry\Laravel\ServiceProvider::class,
     ],
 
     /*
@@ -249,22 +261,20 @@ return [
 
         'Purifier'  => Mews\Purifier\Facades\Purifier::class,
         'Image'     => Intervention\Image\Facades\Image::class,
-        'Rss'       => Thujohn\Rss\RssFacade::class,
         'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
 
         'Flash'            => Laracasts\Flash\Flash::class,
         'QrCode'           => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
-        'Rss'              => Thujohn\Rss\RssFacade::class,
+        'Rss'              => RicardoSierra\Rss\RssFacade::class,
         'UserVerification' => Jrean\UserVerification\Facades\UserVerification::class,
+
+        'PollWriter' => Inani\Larapoll\PollWriterFacade::class,
 
         'Carbon' => Carbon\Carbon::class,
 
-        // API
-        'Authorizer' => LucaDegasperi\OAuth2Server\Facades\Authorizer::class,
-
         // Controle de Programação
-        'Sentry' => Sentry\SentryLaravel\SentryFacade::class,
+        'Sentry' => Sentry\Laravel\Facade::class,
 
     ],
 

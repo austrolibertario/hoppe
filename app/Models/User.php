@@ -5,17 +5,32 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Zizaco\Entrust\Traits\EntrustUserTrait;
-use Illuminate\Foundation\Auth\Access\Authorizable;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
-use Laracasts\Presenter\PresentableTrait;
-use Venturecraft\Revisionable\RevisionableTrait;
-use Overtrue\LaravelFollow\FollowTrait;
 use App\Jobs\SendActivateMail;
 use Carbon\Carbon;
 use Cache;
 use Nicolaslopezj\Searchable\SearchableTrait;
 use Cmgmyr\Messenger\Traits\Messagable;
+
+/**
+ * Traits
+ */
+use Inani\Larapoll\Traits\Voter;
+use Laracasts\Presenter\PresentableTrait;
+use Venturecraft\Revisionable\RevisionableTrait;
+use Laravel\Passport\HasApiTokens;
+use Illuminate\Notifications\Notifiable;
+// use Illuminate\Foundation\Auth\User as Authenticatable;
+// Podem Seguir
+use Overtrue\LaravelFollow\Traits\CanFollow;
+use Overtrue\LaravelFollow\Traits\CanLike;
+use Overtrue\LaravelFollow\Traits\CanFavorite;
+use Overtrue\LaravelFollow\Traits\CanSubscribe;
+use Overtrue\LaravelFollow\Traits\CanVote;
+use Overtrue\LaravelFollow\Traits\CanBookmark;
+// Podem Serem Seguidos
+use Overtrue\LaravelFollow\Traits\CanBeFollowed;
 
 class User extends Model implements AuthenticatableContract,
                                     AuthorizableContract
@@ -25,12 +40,32 @@ class User extends Model implements AuthenticatableContract,
     use Traits\UserAvatarHelper;
     use Traits\UserActivityHelper;
 
-    use Messagable;
-
-    use PresentableTrait;
-    public $presenter = 'Phphub\Presenters\UserPresenter';
-
+    use Messagable, HasApiTokens, Notifiable, PresentableTrait;
     use SearchableTrait;
+    // use Voter;
+    use CanFollow, CanLike, CanFavorite, CanSubscribe, CanVote, CanBookmark;
+    use CanBeFollowed;
+
+    // For admin log
+    use RevisionableTrait;
+
+    use EntrustUserTrait {
+        restore as private restoreEntrust;
+        EntrustUserTrait::can as may;
+    }
+    use SoftDeletes { restore as private restoreSoftDelete; }
+    
+    public $presenter = 'App\Phphub\Presenters\UserPresenter';
+
+    protected $keepRevisionOf = [
+        'is_banned'
+    ];
+
+    protected $dates = ['deleted_at'];
+
+    protected $table   = 'users';
+    protected $guarded = ['id', 'is_banned'];
+
     protected $searchable = [
         'columns' => [
             'users.name' => 10,
@@ -38,28 +73,11 @@ class User extends Model implements AuthenticatableContract,
             'users.introduction' => 10,
         ],
     ];
-
+    
     public function getAuthIdentifierName()
     {
         return 'id';
     }
-
-    // For admin log
-    use RevisionableTrait;
-    protected $keepRevisionOf = [
-        'is_banned'
-    ];
-
-    use EntrustUserTrait {
-        restore as private restoreEntrust;
-        EntrustUserTrait::can as may;
-    }
-    use SoftDeletes { restore as private restoreSoftDelete; }
-    use FollowTrait;
-    protected $dates = ['deleted_at'];
-
-    protected $table   = 'users';
-    protected $guarded = ['id', 'is_banned'];
 
     public static function boot()
     {

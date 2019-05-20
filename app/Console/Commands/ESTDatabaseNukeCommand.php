@@ -23,10 +23,10 @@ class ESTDatabaseNukeCommand extends BaseCommand
 
         foreach ($tables as $table) {
             $droplist[] = $table->$colname;
-            $this->info('Apagar tabela - ' . $table->$colname);
+            $this->info(_t('Apagar tabela - :table', ['table' => $table->$colname]));
         }
         if (!isset($droplist)) {
-            $this->error('Nenhuma Tabela');
+            $this->error(_t('Nenhuma Tabela'));
             return;
         }
         $droplist = implode(',', $droplist);
@@ -39,6 +39,6 @@ class ESTDatabaseNukeCommand extends BaseCommand
         DB::statement('SET FOREIGN_KEY_CHECKS = 1');
         DB::commit();
 
-        $this->comment("Todas as tabelas foram deletadas".PHP_EOL);
+        $this->comment(_t("Todas as tabelas foram deletadas").PHP_EOL);
     }
 }

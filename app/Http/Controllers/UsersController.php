@@ -6,14 +6,14 @@ use App\Models\User;
 use App\Models\Topic;
 use App\Models\Reply;
 use Illuminate\Http\Request;
-use Phphub\Github\GithubUserDataReader;
+use App\Phphub\Github\GithubUserDataReader;
 use Cache;
 use Auth;
 use Flash;
 use App\Http\Requests\UpdateUserRequest;
 use App\Http\Requests\ResetPasswordRequest;
 use App\Jobs\SendActivateMail;
-use Phphub\Handler\Exception\ImageUploadException;
+use App\Phphub\Handler\Exception\ImageUploadException;
 use App\Activities\UserFollowedUser;
 
 class UsersController extends Controller
@@ -44,8 +44,11 @@ class UsersController extends Controller
         return view('users.show', compact('user','blog', 'articles', 'topics', 'replies'));
     }
 
-    public function edit($id)
+    public function edit($id = false)
     {
+        if (!$id) {
+            $id = Auth::id();
+        }
         $user = User::findOrFail($id);
         $this->authorize('update', $user);
 
@@ -137,7 +140,7 @@ class UsersController extends Controller
             'owner_id'   => Auth::id(),
         ])
             ->with('token')
-            ->lists('id') ?: [];
+            ->pluck('id') ?: [];
 
         $tokens = AccessToken::whereIn('session_id', $sessions)->get();
 
@@ -245,7 +248,7 @@ class UsersController extends Controller
             app(UserFollowedUser::class)->remove(Auth::user(), $user);
         } else {
             Auth::user()->follow($id);
-            app('Phphub\Notification\Notifier')->newFollowNotify(Auth::user(), $user);
+            app('App\Phphub\Notification\Notifier')->newFollowNotify(Auth::user(), $user);
             app(UserFollowedUser::class)->generate(Auth::user(), $user);
 
         }

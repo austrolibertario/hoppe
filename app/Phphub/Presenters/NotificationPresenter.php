@@ -1,4 +1,4 @@
-<?php namespace Phphub\Presenters;
+<?php namespace App\Phphub\Presenters;
 
 use Laracasts\Presenter\Presenter;
 use Route;
@@ -9,13 +9,13 @@ class NotificationPresenter extends Presenter
     {
         switch ($this->type) {
             case 'new_topic_from_subscribe':
-                $lable = "Postado no blog em que você se inscreveu";
+                $lable = _t("Postado no blog em que você se inscreveu");
                 break;
             case 'mentioned_in_topic':
-                $lable = "Mencione você no tópico";
+                $lable = _t("Mencione você no tópico");
                 break;
             case 'new_topic_from_following':
-                $lable = "O usuário que você está seguindo publicou um novo tópico";
+                $lable = _t("O usuário que você está seguindo publicou um novo tópico");
                 break;
             case 'new_reply':
                 $lable = lang('Your topic have new reply:');

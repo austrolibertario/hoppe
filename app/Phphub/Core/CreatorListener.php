@@ -1,4 +1,4 @@
-<?php namespace Phphub\Core;
+<?php namespace App\Phphub\Core;
 
 interface CreatorListener
 {

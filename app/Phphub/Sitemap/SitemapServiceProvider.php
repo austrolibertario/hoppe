@@ -1,4 +1,6 @@
-<?php namespace Phphub\Sitemap;
+<?php 
+
+namespace App\Phphub\Sitemap;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -11,6 +13,6 @@ class SitemapServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->alias('sitemap', 'Roumen\Sitemap\Sitemap');
+        $this->app->alias('sitemap', 'Laravelium\Sitemap\Sitemap');
     }
 }

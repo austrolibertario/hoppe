@@ -57,7 +57,7 @@ class BlogStoreRequest extends Request
         $blog->description = $this->input("description");
 
         if ($file = $this->file('cover')) {
-            $upload_status = app('Phphub\Handler\ImageUploadHandler')->uploadImage($file);
+            $upload_status = app('App\Phphub\Handler\ImageUploadHandler')->uploadImage($file);
             $blog->cover = $upload_status['filename'];
         }
 

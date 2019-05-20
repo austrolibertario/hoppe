@@ -1,11 +1,11 @@
 <?php
 
-namespace Phphub\Handler;
+namespace App\Phphub\Handler;
 
 use App\Models\User;
 use Image;
 use Auth;
-use Phphub\Handler\Exception\ImageUploadException;
+use App\Phphub\Handler\Exception\ImageUploadException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class ImageUploadHandler

@@ -1,4 +1,4 @@
-<?php namespace Phphub\Stat;
+<?php namespace App\Phphub\Stat;
 
 use App\Models\Topic;
 use App\Models\Reply;

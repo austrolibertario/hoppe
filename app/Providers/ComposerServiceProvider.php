@@ -10,7 +10,7 @@ class ComposerServiceProvider extends ServiceProvider
     {
         view()->composer('*', function ($view) {
             $view->with('currentUser', \Auth::user());
-            $view->with('siteStat', app('Phphub\Stat\Stat')->getSiteStat());
+            $view->with('siteStat', app('App\Phphub\Stat\Stat')->getSiteStat());
          });
     }
 

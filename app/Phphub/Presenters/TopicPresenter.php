@@ -1,4 +1,4 @@
-<?php namespace Phphub\Presenters;
+<?php namespace App\Phphub\Presenters;
 
 use Laracasts\Presenter\Presenter;
 use Input;

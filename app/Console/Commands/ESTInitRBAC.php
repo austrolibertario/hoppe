@@ -22,18 +22,18 @@ class ESTInitRBAC extends BaseCommand
     {
         $user = User::first();
         if (!$user) {
-            $this->error("A tabela de usuários está vazia");
+            $this->error(_t("A tabela de usuários está vazia"));
             return;
         }
-        $founder     = Role::addRole('Founder', 'Fundador');
-        $maintainer  = Role::addRole('Maintainer', 'Mantenedor');
-        $contributor = Role::addRole('Contributor', 'Contribuidor');
+        $founder     = Role::addRole('Founder', _t('Fundador'));
+        $maintainer  = Role::addRole('Maintainer', _t('Mantenedor'));
+        $contributor = Role::addRole('Contributor', _t('Contribuidor'));
 
-        $visit_admin   = Permission::addPermission('visit_admin', 'Entrar na Administração');
-        $manage_users  = Permission::addPermission('manage_users', 'Manusear Usuários');
-        $manage_topics = Permission::addPermission('manage_topics', 'Manusear Tópicos');
-        $compose_announcement = Permission::addPermission('compose_announcement', 'Compondo Anúncio');
-        $access_board = Permission::addPermission('access_board', 'Acessar Boards');
+        $visit_admin   = Permission::addPermission('visit_admin', _t('Entrar na Administração'));
+        $manage_users  = Permission::addPermission('manage_users', _t('Manusear Usuários'));
+        $manage_topics = Permission::addPermission('manage_topics', _t('Manusear Tópicos'));
+        $compose_announcement = Permission::addPermission('compose_announcement', _t('Compondo Anúncio'));
+        $access_board = Permission::addPermission('access_board', _t('Acessar Boards'));
 
         $this->attachPermissions($founder, [
             $visit_admin,
@@ -54,7 +54,7 @@ class ESTInitRBAC extends BaseCommand
         }
 
         $this->info('--');
-        $this->info("Inicializando com sucesso o RBAC -- ID: 1 e Nome “{$user->name}” tem permissão de fundador");
+        $this->info(_t("Inicializando com sucesso o RBAC -- ID: 1 e Nome “{$user->name}” tem permissão de fundador"));
         $this->info('--');
 
         for($i=2;$i<=7;$i++) {
@@ -63,7 +63,7 @@ class ESTInitRBAC extends BaseCommand
                 $user->attachRole($founder);
             }
             $this->info('--');
-            $this->info("Inicializando com sucesso o RBAC -- ID: $i e Nome “{$user->name}” tem permissão de fundador");
+            $this->info(_t("Inicializando com sucesso o RBAC -- ID: $i e Nome “{$user->name}” tem permissão de fundador"));
             $this->info('--');
         }
 
@@ -74,7 +74,7 @@ class ESTInitRBAC extends BaseCommand
                 $user->attachRole($founder);
             }
             $this->info('--');
-            $this->info("Inicializando com sucesso o RBAC -- ID: $i e Nome “{$user->name}” tem permissão de “{$founder->name}”");
+            $this->info(_t("Inicializando com sucesso o RBAC -- ID: $i e Nome “{$user->name}” tem permissão de “{$founder->name}”"));
             $this->info('--');
         }
     }

@@ -26,11 +26,14 @@ class SendMaintainerWorksMail extends Command
                              ->where('end_time', $end_time)
                              ->get();
         if (!$logs) {
-            return 'No data';
+            return _t('Sem logs');
         }
 
         $content = $this->generateContent($logs);
-        $timeFrame = "{$start_time} 至 {$end_time}";
+        $timeFrame = _t(":start_time até :end_time", [
+            'start_time' => $start_time,
+            'end_time' => $end_time,
+        ]);
 
         $founders = User::byRolesName(Role::find(1)->name);
         $maintainer = User::byRolesName(Role::find(2)->name);
@@ -40,7 +43,7 @@ class SendMaintainerWorksMail extends Command
             dispatch(new \App\Jobs\SendMaintainerWorksMail($user, $timeFrame, $content));
         }
 
-        $this->info('Done');
+        $this->info(_t('Concluido'));
     }
 
     protected function generateContent($logs)
@@ -48,9 +51,9 @@ class SendMaintainerWorksMail extends Command
         $content = "<table style=\"box-sizing: border-box; border-collapse: collapse; border-spacing: 0px; margin-top: 0px; margin-bottom: 16px; display: block; width: 637px; overflow: auto; word-break: keep-all; font-family: 'Helvetica Neue', Helvetica, 'Segoe UI', Arial, freesans, sans-serif; font-size: 16px;\">
                     <thead style=\"box-sizing: border-box;\">
                         <tr style=\"box-sizing: border-box; border-top-width: 1px; border-top-style: solid; border-top-color: rgb(204, 204, 204);\">
-                            <th style=\"box-sizing: border-box; padding: 6px 13px; border: 1px solid rgb(221, 221, 221);\">Usuário</th>
-                            <th style=\"box-sizing: border-box; padding: 6px 13px; border: 1px solid rgb(221, 221, 221); text-align: center;\">Número de postagens</th>
-                            <th style=\"box-sizing: border-box; padding: 6px 13px; border: 1px solid rgb(221, 221, 221); text-align: right;\">Número de respostas</th>
+                            <th style=\"box-sizing: border-box; padding: 6px 13px; border: 1px solid rgb(221, 221, 221);\">"._t("Usuário")."</th>
+                            <th style=\"box-sizing: border-box; padding: 6px 13px; border: 1px solid rgb(221, 221, 221); text-align: center;\">"._t("Número de postagens")."</th>
+                            <th style=\"box-sizing: border-box; padding: 6px 13px; border: 1px solid rgb(221, 221, 221); text-align: right;\">"._t("Número de respostas")."</th>
                         </tr>
                     </thead>
                     <tbody style=\"box-sizing: border-box;\">";

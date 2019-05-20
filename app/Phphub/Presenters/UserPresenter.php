@@ -1,11 +1,12 @@
-<?php namespace Phphub\Presenters;
+<?php namespace App\Phphub\Presenters;
 
 use Laracasts\Presenter\Presenter;
 use Route;
 use App\Models\User;
 use App\Models\Role;
 use Cache;
-use Phphub\Markdown\Markdown;
+use App\Phphub\Markdown\Markdown;
+use Illuminate\Support\Arr;
 
 class UserPresenter extends Presenter
 {
@@ -76,11 +77,12 @@ class UserPresenter extends Presenter
         $relations = Role::relationArrayWithCache();
 
         // Grupo de usuários no qual o usuário está localizado, mostrando o nome com o menor role_id
-        $relations = array_sort($relations, function ($value) {
+        $relations = Arr::sort($relations, function ($value) {
             return $value->role_id;
         });
 
-        $relation = array_first($relations, function ($key, $value) {
+
+        $relation = Arr::first($relations, function ($value) {
             return $value->user_id == $this->id;
         });
 
@@ -90,7 +92,7 @@ class UserPresenter extends Presenter
 
         $roles = Role::rolesArrayWithCache();
 
-        $role = array_first($roles, function ($key, $value) use (&$relation) {
+        $role = Arr::first($roles, function ($value) use (&$relation) {
             return $value->id == $relation->role_id;
         });
 
@@ -101,7 +103,7 @@ class UserPresenter extends Presenter
     {
         $relations = Role::relationArrayWithCache();
 
-        $relations = array_where($relations, function ($key, $value) {
+        $relations = Arr::where($relations, function ($value) {
             return $value->user_id == $this->id && $value->role_id <= 2;
         });
 
@@ -110,7 +112,7 @@ class UserPresenter extends Presenter
 
     public function followingUsersJson()
     {
-        $users = \Auth::user()->followings()->lists('name');
+        $users = \Auth::user()->followings()->pluck('name');
 
         return json_encode($users);
     }

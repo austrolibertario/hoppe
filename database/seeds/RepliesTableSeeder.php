@@ -9,8 +9,8 @@ class RepliesTableSeeder extends Seeder
 {
     public function run()
     {
-        $users  = User::lists('id')->toArray();
-        $topics = Topic::lists('id')->toArray();
+        $users  = User::pluck('id')->toArray();
+        $topics = Topic::pluck('id')->toArray();
         $faker  = app(Faker\Generator::class);
 
         $replies = factory(Reply::class)->times(rand(300, 500))->make()->each(function ($reply) use ($faker, $users, $topics) {

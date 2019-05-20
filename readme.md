@@ -1,5 +1,7 @@
-## Visão geral do projeto
+[PHPHub](https://github.com/austrolibertarios/phphub) Laravel 5.8 Versão.
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/austrolibertario/hoppe/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/austrolibertario/hoppe/?branch=master)[![Code Coverage](https://scrutinizer-ci.com/g/austrolibertario/hoppe/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/austrolibertario/hoppe/?branch=master)[![Latest Stable Version](https://poser.pugx.org/austrolibertario/hoppe/v/stable.png)](https://packagist.org/packages/austrolibertario/hoppe) [![Total Downloads](https://poser.pugx.org/austrolibertario/hoppe/downloads.png)](https://packagist.org/packages/austrolibertario/hoppe) [![Latest Unstable Version](https://poser.pugx.org/austrolibertario/hoppe/v/unstable.png)](https://packagist.org/packages/austrolibertario/hoppe) [![License](https://poser.pugx.org/austrolibertario/hoppe/license.png)](https://packagist.org/packages/austrolibertario/hoppe)
 
+## Visão geral do projeto=============                                                                                                                                                                             
 * Nome do produto: Instituto Hoppe Brasil
 * Código do projeto: h3
 * Endereço oficial：https://h3sotospeak.com/
@@ -9,24 +11,57 @@
 ## Ambiente operacional
 
 - Nginx 1.8+
-- PHP 5.6+
+- PHP 7.0+
 - Mysql 5.7+
 - Redis 3.0+
 - Memcached 1.4+
 
+## Requirements
+
+Docker
+
+OU
+
+Libs:
+* php +7
+* ext-mcrypt
+
+Install in ubuntu
+```
+sudo apt install php-mcrypt
+```
+
 ## Implantação / instalação do ambiente de desenvolvimento
 
-Este código de projeto foi desenvolvido usando o framework PHP [Laravel 5.1], usado no ambiente de desenvolvimento local [Laravel Homestead] ou docker. E usando docker também em produção.
+Este código de projeto foi desenvolvido usando o framework PHP [Laravel 5.1] (https://doc.h3sotospeak.com/docs/5.1/), usado no ambiente de desenvolvimento local [Laravel Homestead](https://doc.h3sotospeak.com/docs/5.1/homestead).
 
+A seguinte descrição será feita assumindo que o leitor já instalou o Homestead. Se você não instalou o Homestead, você pode consultar [Instalação e Configuração do Homestead] (https://doc.h3sotospeak.com/docs/5.1/homestead#installation-and-setup) para a configuração da instalação.
 
-### Instalação com docker
+### Installing With Docker | Instalando com Docker
 
 #### 1. Clonar código-fonte
+
+Este código de projeto foi desenvolvido usando o framework PHP [Laravel 5.8], usado no ambiente de desenvolvimento local [Laravel Homestead] ou docker. E usando docker também em produção.
+
+Instale via composer
+```
+composer create-project austrolibertario/hoppe
+```
+
+ou
 
 Clone o código-fonte para o local:
 
     > git clone https://github.com/austrolibertarios/hoppe.git
 
+#### 2. Agora suba os servidores:
+```
+docker-compose up
+```
+
+<<<<<<< HEAD
+#### 3. Run install inside php container
+=======
 #### 2. Copie e configura o arquivo .env e  suba os servidores:
 ```
 cp .env.example .env && \
@@ -34,26 +69,38 @@ docker-compose up
 ```
 
 #### 3. Se conecte no container do postgres e crie os bancos de dados e faça a importação das bases
+>>>>>>> master
 ```
 docker exec -it hoppe_db_1 bash
-mysql -u root -p
-CREATE DATABASE hoppe;
-```
-#### 4. Saia e rode no container do php
-```
 php artisan est:install
 ```
+      
+#### Obs For connecting in database use this command
+```
+docker exec -it hoppe_db_1 bash
+mysql -u root -p hoppe;
+```
 
 
+<<<<<<< HEAD
+### Simple Instalation | Instalação Simples
+=======
 ### Instalação com Homestead
+>>>>>>> master
 
-#### 1. Clonar código-fonte
+#### 1. Clone github code
 
 Clone o código-fonte para o local:
 
     > git clone https://github.com/austrolibertarios/hoppe.git
     
       
+#### 3. Se conecte no container do postgres e crie os bancos de dados e fa�a a importa��o das bases
+```
+docker exec -it hoppe_db_1 bash
+mysql -u root -p
+CREATE DATABASE hoppe;
+```
 
 
 #### 2. Configurando um ambiente Homestead local

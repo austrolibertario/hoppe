@@ -1,6 +1,6 @@
 <?php
 
-namespace Phphub\OAuth;
+namespace App\Phphub\OAuth;
 
 use Symfony\Component\HttpFoundation\Request;
 use League\OAuth2\Server\Exception\InvalidRequestException;

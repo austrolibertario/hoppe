@@ -33,7 +33,7 @@ trait UserAvatarHelper
 
     public function updateAvatar($file)
     {
-        $upload_status = app('Phphub\Handler\ImageUploadHandler')->uploadAvatar($file, $this);
+        $upload_status = app('App\Phphub\Handler\ImageUploadHandler')->uploadAvatar($file, $this);
         $this->avatar = $upload_status['filename'];
         $this->save();
 

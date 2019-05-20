@@ -1,4 +1,4 @@
-<?php  namespace Phphub\Notification;
+<?php  namespace App\Phphub\Notification;
 
 use App\Models\User;
 

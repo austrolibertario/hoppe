@@ -70,6 +70,12 @@ return [
         'redirect'      => env('WEIXIN_REDIRECT_URI'),
         'auth_base_uri' => 'https://open.weixin.qq.com/connect/qrconnect',
     ],
+    'gitlab' => [
+        'client_id' => env('GITLAB_KEY'),
+        'client_secret' => env('GITLAB_SECRET'),
+        'redirect' => env('GITLAB_REDIRECT_URI')
+    ],
+    
     /////////////////////
     // FIM DAS Autenticações
     /////////////////////

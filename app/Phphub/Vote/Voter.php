@@ -1,4 +1,4 @@
-<?php namespace Phphub\Vote;
+<?php namespace App\Phphub\Vote;
 
 use App\Models\Reply;
 use App\Models\Topic;

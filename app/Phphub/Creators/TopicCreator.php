@@ -1,13 +1,13 @@
-<?php namespace Phphub\Creators;
+<?php namespace App\Phphub\Creators;
 
-use Phphub\Core\CreatorListener;
-use Phphub\Core\Robot;
+use App\Phphub\Core\CreatorListener;
+use App\Phphub\Core\Robot;
 use App\Models\Topic;
 use App\Models\ShareLink;
-use Phphub\Notification\Mention;
+use App\Phphub\Notification\Mention;
 use Auth;
 use Carbon\Carbon;
-use Phphub\Markdown\Markdown;
+use App\Phphub\Markdown\Markdown;
 use Illuminate\Support\MessageBag;
 use App\Activities\UserPublishedNewTopic;
 use App\Activities\BlogHasNewArticle;
@@ -25,7 +25,7 @@ class TopicCreator
     {
         // Verifique se há publicação duplicada
         if ($this->isDuplicate($data)) {
-            return $observer->creatorFailed('Por favor, não poste conteúdo duplicado.');
+            return $observer->creatorFailed(_t('Por favor, não poste conteúdo duplicado.'));
         }
 
         $data['user_id'] = Auth::id();
@@ -61,7 +61,7 @@ class TopicCreator
         }
 
         if ($topic->is_draft != 'yes' && $topic->category_id != config('phphub.admin_board_cid')) {
-            app('Phphub\Notification\Notifier')->newTopicNotify(Auth::user(), $this->mentionParser, $topic);
+            app('App\Phphub\Notification\Notifier')->newTopicNotify(Auth::user(), $this->mentionParser, $topic);
             app(UserPublishedNewTopic::class)->generate(Auth::user(), $topic);
         }
 

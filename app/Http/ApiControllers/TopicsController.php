@@ -7,7 +7,7 @@ use Dingo\Api\Exception\StoreResourceFailedException;
 use Prettus\Validator\Exceptions\ValidatorException;
 use App\Repositories\Criteria\FilterManager;
 use App\Transformers\TopicTransformer;
-use Phphub\Core\CreatorListener;
+use App\Phphub\Core\CreatorListener;
 use Illuminate\Http\Request;
 use App\Models\Topic;
 use App\Models\User;
@@ -45,7 +45,7 @@ class TopicsController extends Controller implements CreatorListener
             throw new StoreResourceFailedException('Falha ao criar o tópico, verifique a caixa de correio do usuário');
         }
         $data = array_merge($request->except('_token'), ['category_id' => $request->category_id]);
-        return app('Phphub\Creators\TopicCreator')->create($this, $data);
+        return app('App\Phphub\Creators\TopicCreator')->create($this, $data);
     }
 
     public function show($id)
@@ -95,7 +95,7 @@ class TopicsController extends Controller implements CreatorListener
     public function voteUp($id)
     {
         $topic = Topic::find($id);
-        app('Phphub\Vote\Voter')->topicUpVote($topic);
+        app('App\Phphub\Vote\Voter')->topicUpVote($topic);
 
         return response([
             'vote-up'    => true,
@@ -106,7 +106,7 @@ class TopicsController extends Controller implements CreatorListener
     public function voteDown($id)
     {
         $topic = Topic::find($id);
-        app('Phphub\Vote\Voter')->topicDownVote($topic);
+        app('App\Phphub\Vote\Voter')->topicDownVote($topic);
 
         return response([
             'vote-down'  => true,

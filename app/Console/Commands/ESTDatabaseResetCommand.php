@@ -13,7 +13,7 @@ class ESTDatabaseResetCommand extends BaseCommand
 
     public function handle()
     {
-        $this->productionCheckHint("Will delete all tables, and run the 'migrate' and 'db:seed' commands");
+        $this->productionCheckHint(_t("Will delete all tables, and run the 'migrate' and 'db:seed' commands"));
 
         $this->call('est:dbnuke', [
             '--force' => 'yes'

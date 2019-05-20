@@ -15,7 +15,7 @@ class Thread extends MessengerThread
     public static function participateBy($user_id)
     {
         $user_id = Auth::id();
-        $thread_ids = array_unique(Participant::byWhom($user_id)->lists('thread_id')->toArray());
+        $thread_ids = array_unique(Participant::byWhom($user_id)->pluck('thread_id')->toArray());
 
         return Thread::whereIn('id', $thread_ids)->orderBy('updated_at', 'desc')->paginate(15);
     }

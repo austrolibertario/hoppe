@@ -25,10 +25,10 @@ class BaseCommand extends Command
 
         $this->info('-------');
         $this->info('-------');
-        $this->info(sprintf("Execução de comando concluída, demorada: %s, uso de memória: %s ",
-            $this->bench->getTime(),
-            $this->bench->getMemoryUsage()
-        ));
+        $this->info(_t("Execução de comando concluída, demorada: :time, uso de memória: :memory", [
+            'time' => $this->bench->getTime(),
+            'memory' => $this->bench->getMemoryUsage()
+        ]));
         $this->info('-------');
         $this->info('-------');
     }
@@ -44,12 +44,12 @@ class BaseCommand extends Command
 
     public function productionCheckHint($message = '')
     {
-        $message = $message ?: 'Esta é uma operação "muito perigosa"';
+        $message = $message ?: _t('Esta é uma operação "muito perigosa"');
         if (App::environment('production')
             && !$this->option('force')
-            && !$this->confirm('Você está no ambiente de 「Production」, '.$message.'! Você tem certeza de que quer fazer isso? [y|N]')
+            && !$this->confirm(_t('Você está no ambiente de 「Production」, :message! Você tem certeza de que quer fazer isso? [y|N]', ['message' => $message]))
         ) {
-            exit('Terminação de comando');
+            exit(_t('Terminação de comando'));
         }
     }
 }

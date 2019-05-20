@@ -1,6 +1,6 @@
 <?php
 
-namespace Phphub\Listeners;
+namespace App\Phphub\Listeners;
 
 interface UserCreatorListener
 {

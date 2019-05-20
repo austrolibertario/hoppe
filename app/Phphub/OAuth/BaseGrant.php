@@ -1,6 +1,6 @@
 <?php
 
-namespace Phphub\OAuth;
+namespace App\Phphub\OAuth;
 
 use League\OAuth2\Server\Entity\AccessTokenEntity;
 use League\OAuth2\Server\Entity\ClientEntity;

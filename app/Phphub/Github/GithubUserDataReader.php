@@ -1,4 +1,4 @@
-<?php namespace Phphub\Github;
+<?php namespace App\Phphub\Github;
 
 use GuzzleHttp\Client;
 

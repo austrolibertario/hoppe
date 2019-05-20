@@ -49,13 +49,13 @@ class UpdateUserRequest extends Request
 
         // 微信支付二维码
         if ($file = $this->file('payment_qrcode')) {
-            $upload_status = app('Phphub\Handler\ImageUploadHandler')->uploadImage($file);
+            $upload_status = app('App\Phphub\Handler\ImageUploadHandler')->uploadImage($file);
             $data['payment_qrcode'] = $upload_status['filename'];
         }
 
         // 微信二维码
         if ($file = $this->file('wechat_qrcode')) {
-            $upload_status = app('Phphub\Handler\ImageUploadHandler')->uploadImage($file);
+            $upload_status = app('App\Phphub\Handler\ImageUploadHandler')->uploadImage($file);
             $data['wechat_qrcode'] = $upload_status['filename'];
         }
 

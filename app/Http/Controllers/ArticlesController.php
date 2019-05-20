@@ -2,7 +2,7 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use Phphub\Core\CreatorListener;
+use App\Phphub\Core\CreatorListener;
 
 use App\Models\Post;
 use App\Models\User;
@@ -12,7 +12,7 @@ use App\Models\Blog;
 use Illuminate\Http\Request;
 use Auth;
 use Flash;
-use Phphub\Markdown\Markdown;
+use App\Phphub\Markdown\Markdown;
 
 use App\Http\Requests\StoreTopicRequest;
 
@@ -49,7 +49,7 @@ class ArticlesController extends Controller implements CreatorListener
         if ($request->subject == 'draft') {
             $data['is_draft'] = 'yes';
         }
-        return app('Phphub\Creators\TopicCreator')->create($this, $data, $blog);
+        return app('App\Phphub\Creators\TopicCreator')->create($this, $data, $blog);
 	}
 
 	public function transform($id)

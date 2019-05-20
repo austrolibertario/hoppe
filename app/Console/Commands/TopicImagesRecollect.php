@@ -21,7 +21,7 @@ class TopicImagesRecollect extends Command
         Topic::chunk(200, function ($topics) {
             foreach ($topics as $topic) {
                 $topic->collectImages();
-                $this->info("Processamento concluído：$topic->id");
+                $this->info(_t("Processamento concluído：$topic->id"));
             }
         });
     }

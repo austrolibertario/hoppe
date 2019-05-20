@@ -38,8 +38,8 @@ return [
          * Use login_token harvest access_token
          */
         'login_token' => [
-            'class'            => \Phphub\OAuth\LoginTokenGrant::class,
-            'callback'         => \Phphub\OAuth\LoginTokenVerifier::class.'@verify',
+            'class'            => \App\Phphub\OAuth\LoginTokenGrant::class,
+            'callback'         => \App\Phphub\OAuth\LoginTokenVerifier::class.'@verify',
             'access_token_ttl' => (int) env('OAUTH_ACCESS_TOKEN_TTL', 2592000),
         ],
 

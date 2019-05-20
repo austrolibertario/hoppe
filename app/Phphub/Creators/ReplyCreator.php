@@ -1,15 +1,15 @@
-<?php namespace Phphub\Creators;
+<?php namespace App\Phphub\Creators;
 
-use Phphub\Core\CreatorListener;
-use Phphub\Core\Robot;
-use Phphub\Notification\Mention;
+use App\Phphub\Core\CreatorListener;
+use App\Phphub\Core\Robot;
+use App\Phphub\Notification\Mention;
 use App\Models\Reply;
 use Auth;
 use App\Models\Topic;
 use App\Models\Notification;
 use Carbon\Carbon;
 use App;
-use Phphub\Markdown\Markdown;
+use App\Phphub\Markdown\Markdown;
 use App\Jobs\SendReplyNotifyMail;
 use Illuminate\Support\MessageBag;
 use App\Activities\UserRepliedTopic;
@@ -28,7 +28,7 @@ class ReplyCreator
         // Verifique se os comentários são repetidos
         if ($this->isDuplicateReply($data)) {
             $errorMessages = new MessageBag;
-            $errorMessages->add('duplicated', 'Por favor, não poste conteúdo duplicado.');
+            $errorMessages->add('duplicated', _t('Por favor, não poste conteúdo duplicado.'));
             return $observer->creatorFailed($errorMessages);
         }
 
@@ -55,7 +55,7 @@ class ReplyCreator
 
         Auth::user()->increment('reply_count', 1);
 
-        app('Phphub\Notification\Notifier')->newReplyNotify(Auth::user(), $this->mentionParser, $topic, $reply);
+        app('App\Phphub\Notification\Notifier')->newReplyNotify(Auth::user(), $this->mentionParser, $topic, $reply);
 
         app(UserRepliedTopic::class)->generate(Auth::user(), $topic, $reply);
 

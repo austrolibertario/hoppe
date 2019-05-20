@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 	<head>
 
-		<meta charset="UTF-8">
+		<meta charset="UTF-8" />
 
 		<title>@section('title')Hans-Hermann Hoppe Brasil @show</title>
 
@@ -11,29 +11,29 @@
 		<meta name="keywords" content="H³, So To Speak, por assim dizer, libertarianismo, libertarios, anarquia, cyberlibertarianismo, cyber-libertarianismo, livre comercio, Hans-Hermann Hoppe, Ciberativismo libertário, austriacos, austrolibertarios, austro-libertarios, imposto é roubo, estado é gangue, h3" />
 		<meta name="author" content="H³ So To Speak" />
 		<meta name="description" content="@section('description')Hans-Hermann Hoppe Brasil - Debate Libertário @show" />
-
-		<meta property="og:site_name" content="Hans-Hermann Hoppe Brasil"/>
-		<meta property="og:type" content="article"/>
+        
+		<meta property="og:site_name" content="Hans-Hermann Hoppe Brasil" />
+		<meta property="og:type" content="article" />
 		<meta name="twitter:card" content="summary">
-		<meta property="fb:admins" content="h3sotospeak"/>
-		<meta property="og:title" content="@section('title')Hans-Hermann Hoppe Brasil @show"/>
-		<meta name="twitter:title" content="@section('title')Hans-Hermann Hoppe Brasil @show">
-		<meta property="og:description" content="@section('description')Hans-Hermann Hoppe Brasil - Debate Libertário @show"/>
-		<meta property="og:url" content="{{Request::url()}}"/>
-		<meta name="twitter:url" content="{{Request::url()}}">
-		<meta name="twitter:site" content="@H3SoToSpeak">
+		<meta property="fb:admins" content="h3sotospeak" />
+		<meta property="og:title" content="@section('title')Hans-Hermann Hoppe Brasil @show" />
+		<meta name="twitter:title" content="@section('title')Hans-Hermann Hoppe Brasil @show" />
+		<meta property="og:description" content="@section('description')Hans-Hermann Hoppe Brasil - Debate Libertário @show" />
+		<meta property="og:url" content="{{Request::url()}}" />
+		<meta name="twitter:url" content="{{Request::url()}}" />
+		<meta name="twitter:site" content="@H3SoToSpeak" />
 		<?php
 		/*
 		<meta property="og:image"content="https://marketingdeconteudo.com/wp-content/uploads/2014/09/zuckerberg-620×316.png "/>
-		<meta name="twitter:image"content="https://marketingdeconteudo.com/wp-content/uploads/2014/09/zuckerberg-620×316.png">
+		<meta name="twitter:image"content="https://marketingdeconteudo.com/wp-content/uploads/2014/09/zuckerberg-620×316.png" />
 		*/
 		?>
 
-        <meta name="_token" content="{{ csrf_token() }}">
+        <meta name="_token" content="{{ csrf_token() }}" />
 
-        <link rel="stylesheet" href="{{ cdn(elixir('assets/css/styles.css')) }}">
+        <link rel="stylesheet" href="{{ cdn(elixir('assets/css/styles.css')) }}" />
 
-        <link rel="shortcut icon" href="{{ cdn('favicon1.png') }}"/>
+        <link rel="shortcut icon" href="{{ cdn('favicon1.png') }}" />
 
         <script>
             Config = {

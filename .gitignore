@@ -1,17 +1,25 @@
-/vendor
 /node_modules
-Homestead.yaml
+/public/hot
+/public/storage
+/storage/*.key
+/vendor
+/.idea
+/.vscode
+/.vagrant
 Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
 .env
+.phpunit.result.cache
 .DS_Store
 npm-debug.log
 
-/storage/administrator_settings
-
-.DS_Store
-.idea
 _ide_helper.php
 _ide_helper_models.php
 
-Envoy.blade.php
+/storage/administrator_settings
 
+.phpunit.result.cache
+storage/oauth-private.key
+storage/oauth-public.key

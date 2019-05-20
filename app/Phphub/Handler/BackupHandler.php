@@ -1,6 +1,6 @@
 <?php
 
-namespace Phphub\Handler;
+namespace App\Phphub\Handler;
 
 use Spatie\Backup\Notifications\BaseSender;
 use GuzzleHttp\Client;

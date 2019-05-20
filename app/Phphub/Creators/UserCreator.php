@@ -1,8 +1,8 @@
 <?php
 
-namespace Phphub\Creators;
+namespace App\Phphub\Creators;
 
-use Phphub\Listeners\UserCreatorListener;
+use App\Phphub\Listeners\UserCreatorListener;
 use App\Models\User;
 
 /**

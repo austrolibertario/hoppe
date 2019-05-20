@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Cache;
 use Laracasts\Presenter\PresentableTrait;
-use Phphub\Presenters\SitePresenter;
+use App\Phphub\Presenters\SitePresenter;
 
 class Site extends Model
 {

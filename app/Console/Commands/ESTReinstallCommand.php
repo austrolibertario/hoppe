@@ -14,7 +14,7 @@ class ESTReinstallCommand extends BaseCommand
     public function handle()
     {
 
-        $this->productionCheckHint('Reset database and reset RABC');
+        $this->productionCheckHint(_t('Reset database and reset RABC'));
 
         // fixing db:seed class not found
         $this->execShellWithPrettyPrint('composer dump');

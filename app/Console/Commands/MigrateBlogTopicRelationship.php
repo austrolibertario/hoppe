@@ -37,7 +37,7 @@ class MigrateBlogTopicRelationship extends Command
             foreach ($topics as $topic) {
                 $blog = $topic->user->blogs()->first();
 
-                if ( ! $blog->topics()->where('topic_id', $topic->id)->exists()) {
+                if ( $blog && !$blog->topics()->where('topic_id', $topic->id)->exists()) {
                     $blog->topics()->attach($topic->id);
 
                     if ( ! $blog->authors()->where('user_id', $topic->user_id)->exists()) {

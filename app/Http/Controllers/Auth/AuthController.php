@@ -11,15 +11,16 @@ use Illuminate\Http\Request;
 use Session;
 use Auth;
 use Flash;
-use Log;
+use Illuminate\Support\Facades\Log;
 use App\Http\Requests\StoreUserRequest;
-use Phphub\Listeners\UserCreatorListener;
+use App\Phphub\Listeners\UserCreatorListener;
 use Jrean\UserVerification\Traits\VerifiesUsers;
 use Jrean\UserVerification\Facades\UserVerification;
 use Jrean\UserVerification\Exceptions\UserNotFoundException;
 use Jrean\UserVerification\Exceptions\UserIsVerifiedException;
 use Jrean\UserVerification\Exceptions\TokenMismatchException;
 use App\Http\Controllers\Traits\SocialiteHelper;
+use Illuminate\Support\Arr;;
 
 class AuthController extends Controller implements UserCreatorListener
 {
@@ -95,10 +96,10 @@ class AuthController extends Controller implements UserCreatorListener
             return redirect()->route('login');
         }
         $oauthUser = array_merge(Session::get('oauthData'), $request->only('name', 'email', 'password'));
-        $userData = array_only($oauthUser, array_keys($request->rules()));
+        $userData = Arr::only($oauthUser, array_keys($request->rules()));
         $userData['register_source'] = $oauthUser['driver'];
 
-        return app(\Phphub\Creators\UserCreator::class)->create($this, $userData);
+        return app(\App\Phphub\Creators\UserCreator::class)->create($this, $userData);
     }
 
     public function userBanned()

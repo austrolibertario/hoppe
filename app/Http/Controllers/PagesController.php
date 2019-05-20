@@ -9,7 +9,7 @@ use App\Models\Role;
 use Illuminate\Http\Request;
 use Rss;
 use Purifier;
-use Phphub\Handler\EmailHandler;
+use App\Phphub\Handler\EmailHandler;
 use Jrean\UserVerification\Facades\UserVerification;
 use Auth;
 
@@ -100,7 +100,7 @@ class PagesController extends Controller
 
     public function sitemap()
     {
-        return app('Phphub\Sitemap\Builder')->render();
+        return app('App\Phphub\Sitemap\Builder')->render();
     }
 
     public function hallOfFames()

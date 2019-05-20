@@ -1,8 +1,8 @@
-<?php namespace Phphub\Notification;
+<?php namespace App\Phphub\Notification;
 
-use Phphub\Forms\ReplyCreationForm;
-use Phphub\Core\CreatorListener;
-use Phphub\Notification\Mention;
+use App\Phphub\Forms\ReplyCreationForm;
+use App\Phphub\Core\CreatorListener;
+use App\Phphub\Notification\Mention;
 use App\Models\Reply;
 use Auth;
 use App\Models\Topic;
@@ -71,7 +71,7 @@ class Notifier
 
     public function newAppendNotify(User $fromUser, Topic $topic, Append $append)
     {
-        $users = $topic->replies()->with('user')->get()->lists('user');
+        $users = $topic->replies()->with('user')->get()->pluck('user');
 
         // Notify commented user
         Notification::batchNotify(

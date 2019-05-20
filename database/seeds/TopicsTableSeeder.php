@@ -11,8 +11,8 @@ class TopicsTableSeeder extends Seeder
     public function run()
     {
         
-        $users = User::lists('id')->toArray();
-        $categories = Category::where('id', '!=', 8)->lists('id')->toArray();
+        $users = User::pluck('id')->toArray();
+        $categories = Category::where('id', '!=', 8)->pluck('id')->toArray();
 
         $faker = app(Faker\Generator::class);
 

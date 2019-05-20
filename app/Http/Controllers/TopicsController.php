@@ -1,7 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Phphub\Core\CreatorListener;
+use App\Phphub\Core\CreatorListener;
 use App\Models\Topic;
 use App\Models\SiteStatus;
 use App\Models\Link;
@@ -11,15 +11,15 @@ use App\Models\Category;
 use App\Models\Banner;
 use App\Models\ActiveUser;
 use App\Models\HotTopic;
-use Phphub\Handler\Exception\ImageUploadException;
-use Phphub\Markdown\Markdown;
+use App\Phphub\Handler\Exception\ImageUploadException;
+use App\Phphub\Markdown\Markdown;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreTopicRequest;
 use Auth;
 use Flash;
 use Image;
 use Request as UserRequest;
-use Phphub\Notification\Mention;
+use App\Phphub\Notification\Mention;
 use App\Activities\UserPublishedNewTopic;
 use App\Activities\BlogHasNewArticle;
 use App\Activities\UserAddedAppend;
@@ -57,7 +57,7 @@ class TopicsController extends Controller implements CreatorListener
 
     public function store(StoreTopicRequest $request)
     {
-        return app('Phphub\Creators\TopicCreator')->create($this, $request->except('_token'));
+        return app('App\Phphub\Creators\TopicCreator')->create($this, $request->except('_token'));
     }
 
     public function show($id, Request $request, $fromCode = false)
@@ -114,16 +114,16 @@ class TopicsController extends Controller implements CreatorListener
 
             return view('articles.show', compact(
                                 'blog', 'user','topic', 'replies', 'categoryTopics',
-                                'category', 'banners', 'cover',
-                                'votedUsers', 'userTopics', 'revisionHistory'));
-        } else {
-            $userTopics = $topic->byWhom($topic->user_id)->withoutDraft()->withoutBoardTopics()->recent()->limit(3)->get();
-
-            return view('topics.show', compact(
-                                'topic', 'replies', 'categoryTopics',
-                                'category', 'banners', 'cover',
+                                'banners', 'cover', //'category', 
                                 'votedUsers', 'userTopics', 'revisionHistory'));
         }
+        
+        $userTopics = $topic->byWhom($topic->user_id)->withoutDraft()->withoutBoardTopics()->recent()->limit(3)->get();
+
+        return view('topics.show', compact(
+                            'topic', 'replies', 'categoryTopics',
+                            'banners', 'cover', //'category', 
+                            'votedUsers', 'userTopics', 'revisionHistory'));
     }
 
     public function edit($id)
@@ -148,7 +148,7 @@ class TopicsController extends Controller implements CreatorListener
 
         $append = Append::create(['topic_id' => $topic->id, 'content' => $content]);
 
-        app('Phphub\Notification\Notifier')->newAppendNotify(Auth::user(), $topic, $append);
+        app('App\Phphub\Notification\Notifier')->newAppendNotify(Auth::user(), $topic, $append);
         app(UserAddedAppend::class)->generate(Auth::user(), $topic, $append);
 
         return response([
@@ -177,7 +177,7 @@ class TopicsController extends Controller implements CreatorListener
             $data['created_at'] = Carbon::now()->toDateTimeString();
 
             // Topic Published
-            app('Phphub\Notification\Notifier')->newTopicNotify(Auth::user(), $mentionParser, $topic);
+            app('App\Phphub\Notification\Notifier')->newTopicNotify(Auth::user(), $mentionParser, $topic);
 
             // User activity
             app(UserPublishedNewTopic::class)->generate(Auth::user(), $topic);
@@ -211,7 +211,7 @@ class TopicsController extends Controller implements CreatorListener
     public function upvote($id)
     {
         $topic = Topic::find($id);
-        $topic = app('Phphub\Vote\Voter')->topicUpVote($topic);
+        $topic = app('App\Phphub\Vote\Voter')->topicUpVote($topic);
 
         return response(['status' => 200, 'count' => $topic->vote_count]);
     }
@@ -219,7 +219,7 @@ class TopicsController extends Controller implements CreatorListener
     public function downvote($id)
     {
         $topic = Topic::find($id);
-        app('Phphub\Vote\Voter')->topicDownVote($topic);
+        app('App\Phphub\Vote\Voter')->topicDownVote($topic);
 
         return response(['status' => 200]);
     }
@@ -293,7 +293,7 @@ class TopicsController extends Controller implements CreatorListener
     {
         if ($file = $request->file('file')) {
             try {
-                $upload_status = app('Phphub\Handler\ImageUploadHandler')->uploadImage($file);
+                $upload_status = app('App\Phphub\Handler\ImageUploadHandler')->uploadImage($file);
             } catch (ImageUploadException $exception) {
                 return ['error' => $exception->getMessage()];
             }

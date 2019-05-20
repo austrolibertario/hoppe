@@ -7,11 +7,12 @@ use Cache;
 use Laracasts\Presenter\PresentableTrait;
 use Carbon\Carbon;
 use App\Jobs\SendNotifyMail;
+use Illuminate\Support\Arr;
 
 class Notification extends Model
 {
     use PresentableTrait;
-    public $presenter = 'Phphub\Presenters\NotificationPresenter';
+    public $presenter = 'App\Phphub\Presenters\NotificationPresenter';
 
     // Don't forget to fill this array
     protected $fillable = ['from_user_id','user_id','topic_id','reply_id','body','type'];
@@ -141,7 +142,7 @@ class Notification extends Model
                 . ' • ' . $notification->present()->lableUp()
                 . ' • ' . $topic_title;
 
-        $push_data = array_only($data, [
+        $push_data = Arr::only($data, [
             'topic_id',
             'from_user_id',
             'type',

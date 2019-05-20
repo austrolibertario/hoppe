@@ -41,13 +41,13 @@ class Role extends EntrustRole
     {
         return Cache::remember('all_assigned_roles', $minutes = 60, function () {
             return DB::table('role_user')->get();
-        });
+        })->toArray();
     }
 
     public static function rolesArrayWithCache()
     {
         return Cache::remember('all_roles', $minutes = 60, function () {
             return DB::table('roles')->get();
-        });
+        })->toArray();
     }
 }

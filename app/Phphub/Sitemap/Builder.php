@@ -1,6 +1,6 @@
-<?php namespace Phphub\Sitemap;
+<?php namespace App\Phphub\Sitemap;
 
-use Roumen\Sitemap\Sitemap;
+use Laravelium\Sitemap\Sitemap;
 use Illuminate\Config\Repository;
 
 class Builder
@@ -22,22 +22,22 @@ class Builder
     /**
      * The sitemap generator instance.
      *
-     * @var \Roumen\Sitemap\Sitemap
+     * @var \Laravelium\Sitemap\Sitemap
      */
     protected $sitemap;
 
     /**
      * The data provider instance.
      *
-     * @var \Phphub\Sitemap\DataProvider
+     * @var \App\Phphub\Sitemap\DataProvider
      */
     protected $provider;
 
     /**
      * Create a new sitemap builder instance.
      *
-     * @param  \Roumen\Sitemap\Sitemap                $sitemap
-     * @param  \Phphub\Sitemap\DataProvider  $provider
+     * @param  \Laravelium\Sitemap\Sitemap                $sitemap
+     * @param  \App\Phphub\Sitemap\DataProvider  $provider
      * @param  \Illuminate\Config\Repository          $config
      * @return void
      */

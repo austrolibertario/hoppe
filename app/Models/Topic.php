@@ -40,7 +40,7 @@ class Topic extends Model
     ];
 
     use PresentableTrait;
-    protected $presenter = 'Phphub\Presenters\TopicPresenter';
+    protected $presenter = 'App\Phphub\Presenters\TopicPresenter';
 
     use SoftDeletes;
     protected $dates = ['deleted_at'];
@@ -95,17 +95,17 @@ class Topic extends Model
         $user_ids = Vote::where('votable_type', Topic::class)
                         ->where('votable_id', $this->id)
                         ->where('is', 'upvote')
-                        ->lists('user_id')
+                        ->pluck('user_id')
                         ->toArray();
         return User::whereIn('id', $user_ids)->get();
     }
 
-    public function Category()
+    public function category()
     {
         return $this->belongsTo(Category::class);
     }
 
-    public function Tag()
+    public function tag()
     {
         return $this->hasMany(Tag::class);
     }

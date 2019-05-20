@@ -5,7 +5,7 @@ namespace App\Http\ApiControllers;
 use Dingo\Api\Exception\StoreResourceFailedException;
 use Prettus\Validator\Exceptions\ValidatorException;
 use App\Transformers\ReplyTransformer;
-use Phphub\Core\CreatorListener;
+use App\Phphub\Core\CreatorListener;
 use Illuminate\Http\Request;
 use App\Models\Topic;
 use App\Models\User;
@@ -34,7 +34,7 @@ class RepliesController extends Controller implements CreatorListener
             throw new StoreResourceFailedException('Falha ao criar um comentário, verifique a caixa de correio do usuário');
         }
 
-        return app('Phphub\Creators\ReplyCreator')->create($this, $request->except('_token'));
+        return app('App\Phphub\Creators\ReplyCreator')->create($this, $request->except('_token'));
     }
 
     public function indexWebViewByTopic($topic_id)

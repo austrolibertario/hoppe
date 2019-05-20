@@ -161,7 +161,7 @@ function get_images_from_html($html)
 
 function slug_trans($word)
 {
-    return Phphub\Handler\SlugTranslate::translate($word);
+    return App\Phphub\Handler\SlugTranslate::translate($word);
 }
 
 // Shortens a number and attaches K, M, B, etc. accordingly

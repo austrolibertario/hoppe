@@ -1,6 +1,6 @@
 <?php
 
-namespace Phphub\Handler;
+namespace App\Phphub\Handler;
 
 use GuzzleHttp\Client;
 use Overtrue\Pinyin\Pinyin;

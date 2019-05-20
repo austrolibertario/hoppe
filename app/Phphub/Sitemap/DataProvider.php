@@ -1,4 +1,4 @@
-<?php namespace Phphub\Sitemap;
+<?php namespace App\Phphub\Sitemap;
 
 use Illuminate\Routing\UrlGenerator;
 use App\Models\Topic;

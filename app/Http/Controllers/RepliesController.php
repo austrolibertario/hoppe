@@ -1,7 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Phphub\Core\CreatorListener;
+use App\Phphub\Core\CreatorListener;
 use App\Http\Requests\StoreReplyRequest;
 use App\Models\Reply;
 use Flash;
@@ -19,13 +19,13 @@ class RepliesController extends Controller implements CreatorListener
 
     public function store(StoreReplyRequest $request)
     {
-        return app('Phphub\Creators\ReplyCreator')->create($this, $request->except('_token'));
+        return app('App\Phphub\Creators\ReplyCreator')->create($this, $request->except('_token'));
     }
 
     public function vote($id)
     {
         $reply = Reply::findOrFail($id);
-        $type = app('Phphub\Vote\Voter')->replyUpVote($reply);
+        $type = app('App\Phphub\Vote\Voter')->replyUpVote($reply);
 
         return response([
             'status'  => 200,

@@ -23,7 +23,7 @@ class SyncUserActivedTime extends Command
     {
         $data = Cache::pull(config('phphub.actived_time_for_update'));
         if (!$data) {
-            $this->error('Erro: Nenhum registro!');
+            $this->error(_t('Erro: Nenhum registro!'));
             return false;
         }
 
@@ -32,6 +32,6 @@ class SyncUserActivedTime extends Command
                          ->update(['last_actived_at' => $last_actived_at]);
         }
 
-        $this->info('Feito!');
+        $this->info(_t('Feito!'));
     }
 }

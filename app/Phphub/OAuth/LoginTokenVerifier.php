@@ -1,6 +1,6 @@
 <?php
 
-namespace Phphub\OAuth;
+namespace App\Phphub\OAuth;
 
 use App\Models\User;
 

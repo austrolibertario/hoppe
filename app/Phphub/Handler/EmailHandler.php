@@ -1,6 +1,6 @@
 <?php
 
-namespace Phphub\Handler;
+namespace App\Phphub\Handler;
 
 use App\Models\User;
 use App\Models\Reply;

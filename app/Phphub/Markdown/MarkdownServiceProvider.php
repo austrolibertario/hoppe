@@ -1,4 +1,4 @@
-<?php namespace Phphub\Markdown;
+<?php namespace App\Phphub\Markdown;
 
 use Illuminate\Support\ServiceProvider;
 use Event;
@@ -10,13 +10,13 @@ class MarkdownServiceProvider extends ServiceProvider
 
     public function register()
     {
-        $this->app->singleton('Phphub\Markdown\Markdown', function ($app) {
-            return new \Phphub\Markdown\Markdown;
+        $this->app->singleton('App\Phphub\Markdown\Markdown', function ($app) {
+            return new \App\Phphub\Markdown\Markdown;
         });
     }
 
     public function provides()
     {
-        return ['Phphub\Markdown\Markdown'];
+        return ['App\Phphub\Markdown\Markdown'];
     }
 }

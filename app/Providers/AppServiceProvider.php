@@ -5,6 +5,9 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Carbon\Carbon;
 use URL;
+use App;
+
+use Laravel\Dusk\DuskServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -16,9 +19,10 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Carbon::setLocale('pt');
-        if (\App::environment('production')){
-            URL::forceSchema('https');
+        if (App::environment('production')){
+            URL::forceScheme('https');
         }
+        // Customer::observe(CustomerObserver::class);
     }
 
     /**
@@ -29,7 +33,11 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         if ($this->app->environment() == 'local') {
-            $this->app->register('Laralib\L5scaffold\GeneratorsServiceProvider');
+            $this->app->register('RicardoSierra\L5scaffold\GeneratorsServiceProvider');
+        }
+        
+        if ($this->app->environment('local', 'testing')) {
+            $this->app->register(DuskServiceProvider::class);
         }
     }
 }
