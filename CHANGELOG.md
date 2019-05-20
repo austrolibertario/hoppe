@@ -1,6 +1,6 @@
 # Release Notes
 
-## [Unreleased](https://github.com/austrolibertario/hoppe/compare/v2.2.0...master)
+## [Unreleased](https://github.com/austrolibertario/hoppe/compare/v2.1.0...master)
 
 ### Added
 
@@ -14,6 +14,7 @@
 ### Added
 
 ### Changed
+- Atuaizando scripts do npm
 
 ### Removed
 

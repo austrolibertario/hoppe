@@ -6797,12 +6797,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ricardosierra/rss-l5.git",
-                "reference": "fcb33595a5f7806e43046b8df1fb4b7ff4e4d7b9"
+                "reference": "318bf3bcbf5b821b3d5a5330682d515ad4ae47da"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ricardosierra/rss-l5/zipball/fcb33595a5f7806e43046b8df1fb4b7ff4e4d7b9",
-                "reference": "fcb33595a5f7806e43046b8df1fb4b7ff4e4d7b9",
+                "url": "https://api.github.com/repos/ricardosierra/rss-l5/zipball/318bf3bcbf5b821b3d5a5330682d515ad4ae47da",
+                "reference": "318bf3bcbf5b821b3d5a5330682d515ad4ae47da",
                 "shasum": ""
             },
             "require": {
@@ -6845,7 +6845,7 @@
                 "laravel5",
                 "rss"
             ],
-            "time": "2019-05-20T05:54:27+00:00"
+            "time": "2019-05-20T07:08:51+00:00"
         },
         {
             "name": "ricardosierra/translation",
