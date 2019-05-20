@@ -96,7 +96,7 @@
 
 			</div>
 
-@include('layouts.partials.footer')
+            @include('layouts.partials.footer')
 
 		</div>
 
