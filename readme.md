@@ -41,13 +41,23 @@ cp .env.example .env && \
 docker-compose up
 ```
 
-#### 3. Se conecte no container do postgres e crie os bancos de dados e faça a importação das bases
+#### 3. Se conecte no container do php e crie os bancos de dados e faça a importação das bases
 ```
-docker exec -it hoppe_db_1 bash
+docker exec -it hoppe_php_1 bash
+php artisan key:generate && \
+php artisan migrate --seed
+```
+
+or
+
+```
+docker exec -it hoppe_php_1 bash
 php artisan est:install
 ```
-      
-#### Obs For connecting in database use this command
+
+#### Obs 
+
+For connecting in database use this command
 ```
 docker exec -it hoppe_db_1 bash
 mysql -u root -p hoppe;
