@@ -4,6 +4,8 @@
 
 ### Added
 
+Add pusher da laravel para criar sockets e avisar de notificações em tempo real
+
 ### Changed
 
 ### Removed
