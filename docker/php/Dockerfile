@@ -56,7 +56,6 @@ RUN apt-get update && apt-get upgrade -y \
     && pecl install xdebug && docker-php-ext-enable xdebug \
     && pecl install mongodb && docker-php-ext-enable mongodb \
     && pecl install redis && docker-php-ext-enable redis \
-    && pecl install mcrypt-1.0.2 && docker-php-ext-enable mcrypt \
     && yes '' | pecl install imagick && docker-php-ext-enable imagick \
     && docker-php-ext-enable pcntl
 
