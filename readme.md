@@ -1,12 +1,23 @@
 # Primeiro forum anarco-capitalista!=============                                                     
 
+<p align="center">
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/austrolibertario/hoppe/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/austrolibertario/hoppe/?branch=master)[![Code Coverage](https://scrutinizer-ci.com/g/austrolibertario/hoppe/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/austrolibertario/hoppe/?branch=master)[![Latest Stable Version](https://poser.pugx.org/austrolibertario/hoppe/v/stable.png)](https://packagist.org/packages/austrolibertario/hoppe) [![Total Downloads](https://poser.pugx.org/austrolibertario/hoppe/downloads.png)](https://packagist.org/packages/austrolibertario/hoppe) [![Latest Unstable Version](https://poser.pugx.org/austrolibertario/hoppe/v/unstable.png)](https://packagist.org/packages/austrolibertario/hoppe) [![License](https://poser.pugx.org/austrolibertario/hoppe/license.png)](https://packagist.org/packages/austrolibertario/hoppe)
+</p>
 
-## Visão geral do projeto                                                                                                             
+## Introduction                                                                                                           
 * Instituto Hoppe Brasil：https://h3sotospeak.com/
 * Documentação: https://austrolibertario.github.io/hoppe/
 
 [SoToSpeak](https://github.com/austrolibertarios/hoppe) Running with Laravel 5.8 :heart:.
+
+## Contributing
+
+Thank you for considering contributing to the Hoppe. You can read the contribution guide lines [here](contributing.md).
+
+## License
+
+Institute Hoppe is open-sourced software licensed under the [Libertarian license](LICENSE).
+
 
 ## Installing With Docker | Instalando com Docker
 

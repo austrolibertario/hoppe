@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.93.12",
+            "version": "3.94.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "60f5c4bd261e19844d4263c3a8f370e88e038282"
+                "reference": "fcc8593b3da8465d1181c73689117d13101a1c9a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/60f5c4bd261e19844d4263c3a8f370e88e038282",
-                "reference": "60f5c4bd261e19844d4263c3a8f370e88e038282",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/fcc8593b3da8465d1181c73689117d13101a1c9a",
+                "reference": "fcc8593b3da8465d1181c73689117d13101a1c9a",
                 "shasum": ""
             },
             "require": {
@@ -87,7 +87,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2019-05-17T18:26:46+00:00"
+            "time": "2019-05-20T18:14:09+00:00"
         },
         {
             "name": "bacon/bacon-qr-code",
@@ -3593,16 +3593,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "1.0.51",
+            "version": "1.0.52",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "755ba7bf3fb9031e6581d091db84d78275874396"
+                "reference": "c5a5097156387970e6f0ccfcdf03f752856f3391"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/755ba7bf3fb9031e6581d091db84d78275874396",
-                "reference": "755ba7bf3fb9031e6581d091db84d78275874396",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/c5a5097156387970e6f0ccfcdf03f752856f3391",
+                "reference": "c5a5097156387970e6f0ccfcdf03f752856f3391",
                 "shasum": ""
             },
             "require": {
@@ -3673,7 +3673,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2019-03-30T13:22:34+00:00"
+            "time": "2019-05-20T20:21:14+00:00"
         },
         {
             "name": "league/flysystem-aws-s3-v3",
@@ -7053,12 +7053,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ricardosierra/validate.git",
-                "reference": "c77de57120cc4ab4d7904cc0479a25c862222614"
+                "reference": "08bde691173fd65f079d2ad8d6af8fca96b4cc82"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ricardosierra/validate/zipball/c77de57120cc4ab4d7904cc0479a25c862222614",
-                "reference": "c77de57120cc4ab4d7904cc0479a25c862222614",
+                "url": "https://api.github.com/repos/ricardosierra/validate/zipball/08bde691173fd65f079d2ad8d6af8fca96b4cc82",
+                "reference": "08bde691173fd65f079d2ad8d6af8fca96b4cc82",
                 "shasum": ""
             },
             "require": {
@@ -7098,7 +7098,7 @@
                 "filter",
                 "validate"
             ],
-            "time": "2019-05-20T03:04:44+00:00"
+            "time": "2019-05-20T10:19:20+00:00"
         },
         {
             "name": "seld/cli-prompt",
