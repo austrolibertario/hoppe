@@ -11,7 +11,7 @@
 		<meta name="keywords" content="H³, So To Speak, por assim dizer, libertarianismo, libertarios, anarquia, cyberlibertarianismo, cyber-libertarianismo, livre comercio, Hans-Hermann Hoppe, Ciberativismo libertário, austriacos, austrolibertarios, austro-libertarios, imposto é roubo, estado é gangue, h3" />
 		<meta name="author" content="H³ So To Speak" />
 		<meta name="description" content="@section('description')Hans-Hermann Hoppe Brasil - Debate Libertário @show" />
-        
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 		<meta property="og:site_name" content="Hans-Hermann Hoppe Brasil" />
 		<meta property="og:type" content="article" />
 		<meta name="twitter:card" content="summary">
