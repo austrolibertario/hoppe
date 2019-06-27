@@ -33,19 +33,19 @@
         "vue": "^2.5.17"
     },
     "dependencies": {
-        "gojs": "^2.0.9",
-        "laravel-echo": "^1.5.3",
-        "socket.io-client": "^2.2.0",
         "bootstrap-sass": "^3.2.0",
         "bootstrap-tagsinput": "^0.7.1",
         "cryptiles": ">=4.1.2",
         "font-awesome": "^4.1.0",
+        "gojs": "^2.0.12",
         "hoek": ">=4.2.1",
+        "laravel-echo": "^1.5.4",
         "minimatch": ">=3.0.2",
         "shell-quote": "^1.6.1",
         "social-share.js": "^1.0",
+        "socket.io-client": "^2.2.0",
         "sweetalert": "^2.1.2",
-        "tar": "^4.4.8",
+        "tar": "^4.4.10",
         "typeahead.js": "^0.11.1"
     }
 }
