@@ -37,7 +37,7 @@
         "bootstrap-tagsinput": "^0.7.1",
         "cryptiles": ">=4.1.2",
         "font-awesome": "^4.1.0",
-        "gojs": "^2.0.12",
+        "gojs": "^2.0.13",
         "hoek": ">=4.2.1",
         "laravel-echo": "^1.5.4",
         "minimatch": ">=3.0.2",

@@ -2,15 +2,6 @@ FROM php:7.3-fpm
 
 MAINTAINER Ricardo Sierra <sierra.csi@gmail.com>
 
-# NewRelic
-RUN \
-  curl -L https://download.newrelic.com/php_agent/archive/8.6.0.238/newrelic-php5-8.6.0.238-linux.tar.gz | tar -C /tmp -zx && \
-    NR_INSTALL_USE_CP_NOT_LN=1 NR_INSTALL_SILENT=1 /tmp/newrelic-php5-*/newrelic-install install && \
-      rm -rf /tmp/newrelic-php5-* /tmp/nrinstall* && \
-        sed -i -e 's/"REPLACE_WITH_REAL_KEY"/"bc93fcb97565b2a443cc362f18f22acebcd8e417"/' \
-     -e 's/newrelic.appname = "PHP Application"/newrelic.appname = "Passepag Laravel Api"/' \
-         /usr/local/etc/php/conf.d/newrelic.ini
-
 # Packages
 RUN apt-get update && apt-get upgrade -y \
     libzip-dev \
@@ -56,19 +47,7 @@ RUN apt-get update && apt-get upgrade -y \
     && pecl install xdebug && docker-php-ext-enable xdebug \
     && pecl install mongodb && docker-php-ext-enable mongodb \
     && pecl install redis && docker-php-ext-enable redis \
-    && yes '' | pecl install imagick && docker-php-ext-enable imagick \
-    && docker-php-ext-enable pcntl
-
-# Docker Install
-RUN curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh && rm get-docker.sh
-    #groupadd docker && usermod -aG docker $USER
-
-RUN apt-get update && \
-      apt-get -y install sudo
-
-#RUN useradd -m root && echo "root:root" | chpasswd && adduser root sudo
-RUN echo "root:root" | chpasswd && adduser root sudo
-
+    && yes '' | pecl install imagick && docker-php-ext-enable imagick
 
 # composer
 RUN curl -sS http://getcomposer.org/installer | php && \
