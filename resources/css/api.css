@@ -1,0 +1,25 @@
+/* ===========================================
+ * resources/css/api.css
+ * Estilos específicos para views da API
+ * =========================================== */
+
+@import 'variables';
+
+/* API specific styles */
+.api-view {
+    font-family: $font-family-base;
+    line-height: $line-height-base;
+}
+
+.api-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.api-topic {
+    background: $light;
+    border-radius: $border-radius;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}

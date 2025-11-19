@@ -1,0 +1,26 @@
+/* ===========================================
+ * resources/css/editor.css
+ * Estilos do editor SimpleMDE
+ * =========================================== */
+
+@import 'variables';
+
+/* SimpleMDE overrides */
+@import 'simplemde/dist/simplemde.min.css';
+
+.editor-container {
+    margin-bottom: 1rem;
+}
+
+.CodeMirror {
+    border-radius: $border-radius;
+    border: 1px solid #ddd;
+}
+
+.editor-toolbar {
+    border-radius: $border-radius $border-radius 0 0;
+}
+
+.editor-preview {
+    background: $light;
+}

@@ -1,0 +1,62 @@
+/* ===========================================
+ * resources/css/app.css
+ * Entry point principal de estilos
+ * =========================================== */
+
+/* --------------------------------------
+ * 1. Variáveis e Configuração
+ * -------------------------------------- */
+@import 'variables';
+@import 'mixins';
+
+/* --------------------------------------
+ * 2. Vendor/Terceiros
+ * -------------------------------------- */
+/* Bootstrap */
+@import 'bootstrap/scss/bootstrap';
+
+/* Font Awesome */
+@import '@fortawesome/fontawesome-free/css/all.css';
+
+/* NProgress */
+@import 'nprogress/nprogress.css';
+
+/* Prism (syntax highlighting) */
+@import 'prismjs/themes/prism-tomorrow.css';
+
+/* SweetAlert2 */
+@import 'sweetalert2/dist/sweetalert2.css';
+
+/* Overrides de vendors */
+@import 'vendor/bootstrap-overrides';
+
+/* --------------------------------------
+ * 3. Base
+ * -------------------------------------- */
+@import 'base/reset';
+@import 'base/typography';
+@import 'base/utilities';
+
+/* --------------------------------------
+ * 4. Layout
+ * -------------------------------------- */
+@import 'layouts/grid';
+@import 'layouts/header';
+@import 'layouts/footer';
+@import 'layouts/sidebar';
+
+/* --------------------------------------
+ * 5. Componentes
+ * -------------------------------------- */
+@import 'components/buttons';
+@import 'components/forms';
+@import 'components/cards';
+@import 'components/navigation';
+@import 'components/alerts';
+
+/* --------------------------------------
+ * 6. Páginas específicas
+ * -------------------------------------- */
+@import 'pages/home';
+@import 'pages/topics';
+@import 'pages/users';

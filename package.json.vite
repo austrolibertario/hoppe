@@ -1,0 +1,35 @@
+{
+    "name": "hoppe",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "preview": "vite preview"
+    },
+    "devDependencies": {
+        "@fortawesome/fontawesome-free": "^6.5.1",
+        "autoprefixer": "^10.4.18",
+        "axios": "^1.6.7",
+        "bootstrap": "^5.3.3",
+        "cssnano": "^6.0.5",
+        "laravel-vite-plugin": "^1.0.2",
+        "lodash-es": "^4.17.21",
+        "postcss": "^8.4.35",
+        "sass": "^1.71.1",
+        "terser": "^5.27.0",
+        "vite": "^5.1.4"
+    },
+    "dependencies": {
+        "emojify.js": "^1.1.0",
+        "inline-attachment": "^2.0.3",
+        "jquery": "^3.7.1",
+        "laravel-echo": "^1.15.3",
+        "moment": "^2.30.1",
+        "nprogress": "^0.2.0",
+        "prismjs": "^1.29.0",
+        "pusher-js": "^8.4.0-rc2",
+        "simplemde": "^1.11.2",
+        "sweetalert2": "^11.10.5"
+    }
+}
