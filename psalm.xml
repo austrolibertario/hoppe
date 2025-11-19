@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<psalm
+    errorLevel="4"
+    resolveFromConfigFile="true"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="https://getpsalm.org/schema/config"
+    xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd"
+    findUnusedBaselineEntry="true"
+    findUnusedCode="false"
+    cacheDirectory=".psalm-cache"
+>
+    <projectFiles>
+        <directory name="app" />
+        <directory name="database/factories" />
+        <directory name="database/seeders" />
+        <ignoreFiles>
+            <directory name="vendor" />
+            <file name="app/Helpers.php" />
+        </ignoreFiles>
+    </projectFiles>
+
+    <issueHandlers>
+        <!-- Ignore missing return types during migration -->
+        <MissingReturnType errorLevel="suppress" />
+        <MissingParamType errorLevel="suppress" />
+        <MissingPropertyType errorLevel="suppress" />
+
+        <!-- Ignore mixed types in legacy code -->
+        <MixedArgument errorLevel="suppress" />
+        <MixedAssignment errorLevel="suppress" />
+        <MixedInferredReturnType errorLevel="suppress" />
+        <MixedReturnStatement errorLevel="suppress" />
+
+        <!-- Laravel specific -->
+        <UndefinedMagicMethod errorLevel="suppress" />
+        <UndefinedMagicPropertyFetch errorLevel="suppress" />
+        <InvalidReturnType errorLevel="suppress" />
+
+        <!-- Ignore undefined classes during migration -->
+        <UndefinedClass>
+            <errorLevel type="suppress">
+                <referencedClass name="Zizaco\Entrust\*" />
+            </errorLevel>
+        </UndefinedClass>
+
+        <!-- Deprecation warnings -->
+        <DeprecatedMethod errorLevel="info" />
+        <DeprecatedClass errorLevel="info" />
+    </issueHandlers>
+
+    <plugins>
+        <pluginClass class="Psalm\LaravelPlugin\Plugin" />
+    </plugins>
+</psalm>

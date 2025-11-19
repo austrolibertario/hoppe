@@ -1,0 +1,65 @@
+# ===========================================
+# PHPStan Configuration
+# https://phpstan.org/config-reference
+# ===========================================
+
+includes:
+    - ./vendor/larastan/larastan/extension.neon
+
+parameters:
+    # Analysis level (0-9, 9 is strictest)
+    level: 5
+
+    # Paths to analyse
+    paths:
+        - app/
+        - config/
+        - database/
+        - routes/
+
+    # Paths to exclude
+    excludePaths:
+        - app/Helpers.php
+        - database/migrations/
+
+    # Laravel specific
+    checkMissingIterableValueType: false
+    checkGenericClassInNonGenericObjectType: false
+
+    # Report unmatched ignored errors
+    reportUnmatchedIgnoredErrors: false
+
+    # Parallel processing
+    parallel:
+        maximumNumberOfProcesses: 4
+
+    # Ignored errors (add patterns for known issues during migration)
+    ignoreErrors:
+        # Ignore undefined methods on Eloquent models (common during migration)
+        - '#Call to an undefined method Illuminate\\Database\\Eloquent\\Builder::#'
+
+        # Ignore mixed types in older code
+        - '#Parameter .* of method .* expects .*, mixed given#'
+
+        # Ignore presenters (will be refactored)
+        - '#Call to an undefined method App\\Models\\.*::present\(\)#'
+
+        # Ignore legacy helper functions
+        - '#Function (str_|array_|snake_case|studly_case|camel_case).* not found#'
+
+        # Entrust traits (will be replaced)
+        - '#Trait Zizaco\\Entrust\\Traits\\.*#'
+
+    # Custom extensions
+    bootstrapFiles:
+        - vendor/autoload.php
+
+    # Type coverage
+    typeAliases:
+        UserId: 'int'
+        TopicId: 'int'
+
+    # Universal object crates
+    universalObjectCratesClasses:
+        - Illuminate\Http\Request
+        - Illuminate\Database\Eloquent\Model
